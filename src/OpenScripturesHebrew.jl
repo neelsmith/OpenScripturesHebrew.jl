@@ -32,6 +32,10 @@ export OSHSingular, OSHPlural, OSHDual
 export gender
 export OSHMasculine, OSHFeminine, OSHCommon
 
+export nounstate
+export OSHAbsolute, OSHConstruct
+
+
 export resolvebdb
 
 include("bookids.jl")

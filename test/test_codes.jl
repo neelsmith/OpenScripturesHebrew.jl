@@ -19,6 +19,19 @@ end
     @test person(vrb) isa OSHThirdPerson
 end
 
+
+@testset "Test parsing infinitive verb codes"  begin
+    code = "HVhc"
+    inf = infinitive(code)
+    @test inf isa OSHInfinitive
+    @test conjugation(inf) isa OSHHiphil
+    @test nounstate(inf) isa OSHConstruct
+    
+    
+    
+    
+end
+
 # Noun code to test:  HNcmpa
 # Verb code to test: HVqp3ms
 

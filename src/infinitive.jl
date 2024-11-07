@@ -14,11 +14,20 @@ function infinitive(code::AbstractString)
         conj = conjugation(lang, code[3])
         stateval = nothing
         if code[4] == 'a'
-            stateval = OSHAbsolute
+            stateval = OSHAbsolute()
         elseif code[4] == 'c'
-            stateval = OSHConstruct
+            stateval = OSHConstruct()
         end
     end
     OSHInfinitive(stateval, conj)
 
+end
+
+
+function nounstate(inf::OSHInfinitive)
+    inf.state
+end
+
+function conjugation(inf::OSHInfinitive)
+    inf.conjugation
 end
