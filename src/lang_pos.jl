@@ -1,4 +1,3 @@
-
 """Find language for a OSH code string.
 $(SIGNATURES)
 """

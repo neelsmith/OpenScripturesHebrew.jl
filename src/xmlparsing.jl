@@ -67,7 +67,17 @@ function parseword(n::EzXML.Node)
 end
 
 
-function parseword(code::AbstractString)
+# Dispatch by part of speech
+function parsecode(code::AbstractString)
     lang = language(code)
     wordpos = pos(lang, code)
+    parseword(wordpos, code)
+end
+
+function parseword(pos::OSHPartOfSpeech, code::AbstractString)
+    @warn("parseword function not implemented for $(typeof(pos))")
+end
+
+function parseword(inf::PoSInfinitive, code::AbstractString)
+    infinitivestate(code)
 end

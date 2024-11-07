@@ -21,10 +21,15 @@ include("abstracttypes.jl")
 include("morphology_values.jl")
 
 include("lang_pos.jl")
-include("verbcodes.jl")
+
+
+
 include("finiteverb.jl")
 include("infinitive.jl")
 include("participle.jl")
+
+
+include("verbcodes.jl")
 
 
 include("xmlparsing.jl")

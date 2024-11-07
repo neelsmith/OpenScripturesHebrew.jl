@@ -1,4 +1,4 @@
-
+#=
 """True if code string represents a verb (finite or infinitive form).
 $(SIGNATURES)
 """
@@ -28,14 +28,51 @@ function isparticiple(codestring)::Bool
    # (codestring[4] == 'r' || codestring[4] == 's')
 end
 
+=#
+
+function conjugation(lang::HebrewLanguage, code::Char)
+    if code == 'q'
+        OSHQal()        
+    elseif code == 'h'
+        OSHHiphil()
+    elseif code == 'p'
+        OSHPiel()  
+    elseif code == 'N'
+        OSHNiphal()  
+    elseif code == 'P'
+        OSHPual()       
+    elseif code == 'H'
+        OSHHophal()    
+    elseif code == 't'
+        OSHTiphil()  
+    elseif code == 'Q'
+        OSHQalPassive()  
+    elseif code == 'v'
+        OSHHishtaphel() 
+    elseif code == 'f'
+        OSHHithpalpel() 
+    elseif code == 'o'
+        OSHPolel()  
+    elseif code == 'r'
+        OSHHithpolel()         
+    elseif code == 'l'
+        OSHPilpel()                                                                
+    else
+        @error("Unrecognized value for conjugation $(codestring)")
+    end
+end
 
 """Find conjugation for a Hebrew verb code.
 $(SIGNATURES)
 """
-function conjugation(lang::HebrewLanguage, codestring)::Union{OSHConjugation, Nothing}
+function conjugation(lang::HebrewLanguage, codestring::AbstractString)::Union{OSHConjugation, Nothing}
     if isempty(codestring) || length(codestring) < 3
         @error("Invalid argument for conjugation $(codestring)")
         nothing
+    else
+        conjugation(lang, codesring[3])
+    end
+        #=
     elseif codestring[3] == 'q'
         OSHQal()        
     elseif codestring[3] == 'h'
@@ -65,6 +102,7 @@ function conjugation(lang::HebrewLanguage, codestring)::Union{OSHConjugation, No
     else
         @error("Unrecognized value for conjugation $(codestring)")
     end
+    =#
 end
 
 function verbtype(lang::HebrewLanguage, codestring)::Union{OSHVerbType, Nothing}
