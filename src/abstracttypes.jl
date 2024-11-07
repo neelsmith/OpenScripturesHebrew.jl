@@ -13,4 +13,4 @@ abstract type OSHGender end
 
 abstract type OSHVoice end
 
-abstract type OSHNounState end
+abstract type OSHSubstantiveState end

@@ -1,3 +1,4 @@
+"""A finitive form belongs to a conjugation, and has a verb type, person, number and gender."""
 struct OSHFiniteVerb <: OSHVerb
     conjugation::OSHConjugation
     verbtype::OSHVerbType
@@ -19,26 +20,43 @@ function finiteverb(code::AbstractString)
     end
 end
 
+"""Find conjugation for a verb form.
+$(SIGNATURES)
+"""
 function conjugation(v::OSHFiniteVerb)
     v.conjugation
 end
 
+
+
+"""Find verb type for a verb form.
+$(SIGNATURES)
+"""
 function verbtype(v::OSHFiniteVerb)
     v.verbtype
 end
 
 
+"""Find person for a verb form.
+$(SIGNATURES)
+"""
 function person(v::OSHFiniteVerb)
     v.person
 end
 
 
+"""Find number for a verb form.
+$(SIGNATURES)
+"""
 function number(v::OSHFiniteVerb)
     v.number
 end
 
 
 
+"""Find gender for a verb form.
+$(SIGNATURES)
+"""
 function gender(v::OSHFiniteVerb)
     v.gender
 end

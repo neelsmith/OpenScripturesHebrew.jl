@@ -1,5 +1,6 @@
+"""An infinitive form belongs to a conjugation and has a noun state."""
 struct OSHInfinitive <: OSHMorphologicalForm
-    state::OSHNounState
+    state::OSHSubstantiveState
     conjugation::OSHConjugation
 end
 
@@ -23,10 +24,18 @@ function infinitive(code::AbstractString)
 
 end
 
-function nounstate(inf::OSHInfinitive)
+
+"""Find noun state for an infinitive form.
+$(SIGNATURES)
+"""
+function substantive_state(inf::OSHInfinitive)
     inf.state
 end
 
+
+"""Find conjugation for an infinitive form.
+$(SIGNATURES)
+"""
 function conjugation(inf::OSHInfinitive)
     inf.conjugation
 end

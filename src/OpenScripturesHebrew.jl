@@ -16,6 +16,7 @@ export parsecode, parseword
 
 export OSHInfinitive, infinitive
 export OSHFiniteVerb, finiteverb
+export OSHParticiple, participle
 
 export conjugation
 export OSHQal, OSHHiphil, OSHPiel, OSHNiphal, OSHPual, OSHHophal, OSHQalPassive
@@ -32,8 +33,11 @@ export OSHSingular, OSHPlural, OSHDual
 export gender
 export OSHMasculine, OSHFeminine, OSHCommon
 
-export nounstate
+export substantive_state
 export OSHAbsolute, OSHConstruct
+
+export voice
+export OSHActive, OSHPassive
 
 export resolvebdb
 

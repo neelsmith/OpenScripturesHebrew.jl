@@ -58,9 +58,9 @@ struct OSHCommon <: OSHGender end
 
 # Enumeration of values for voice:
 struct OSHActive <: OSHVoice end
-struct OSPassive <: OSHVoice end
+struct OSHPassive <: OSHVoice end
 
 # Enumeration of noun states:
-struct OSHAbsolute <: OSHNounState end
-struct OSHConstruct <: OSHNounState end
+struct OSHAbsolute <: OSHSubstantiveState end
+struct OSHConstruct <: OSHSubstantiveState end
 

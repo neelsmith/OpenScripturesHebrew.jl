@@ -34,10 +34,19 @@ function conjugation(lang::HebrewLanguage, code::Char)
     end
 end
 
+"""Find conjugation for a morphological code.
+$(SIGNATURES)
+"""
+function conjugation(code::AbstractString)::Union{OSHConjugation, Nothing}
+    conjugation(speechpart(code), language(code), code)
+end
+
+
+
 """Find conjugation for a Hebrew verb code.
 $(SIGNATURES)
 """
-function conjugation(lang::HebrewLanguage, codestring::AbstractString)::Union{OSHConjugation, Nothing}
+function conjugation(finite::PoSFiniteVerb, lang::HebrewLanguage, codestring::AbstractString)::Union{OSHConjugation, Nothing}
     if isempty(codestring) || length(codestring) < 3
         @error("Invalid argument for conjugation $(codestring)")
         nothing
@@ -46,11 +55,17 @@ function conjugation(lang::HebrewLanguage, codestring::AbstractString)::Union{OS
     end
 end
 
-"""Find conjugation for a morphological code.
+
+"""Find conjugation for a Hebrew participle code.
 $(SIGNATURES)
 """
-function conjugation(code::AbstractString)::Union{OSHConjugation, Nothing}
-    conjugation(language(code), code)
+function conjugation(finite::PoSParticiple, lang::HebrewLanguage, codestring::AbstractString)::Union{OSHConjugation, Nothing}
+    if isempty(codestring) || length(codestring) < 3
+        @error("Invalid argument for conjugation $(codestring)")
+        nothing
+    else
+        conjugation(lang, codestring[3])
+    end
 end
 
 
@@ -184,6 +199,14 @@ function number(finite::PoSFiniteVerb, codestring::AbstractString)::Union{OSHNum
     number(codestring[7])
 end
 
+"""Find OSHNumber for a participle code.
+$(SIGNATURES)
+"""
+function number(finite::PoSParticiple, codestring::AbstractString)::Union{OSHNumber, Nothing}
+    number(codestring[6])
+end
+
+
 
 """Find OSHNumber for a suffixed object.
 $(SIGNATURES)
@@ -239,10 +262,69 @@ function gender(finite::PoSFiniteVerb, codestring::AbstractString)::Union{OSHGen
 end
 
 
+"""Find OSHGender for a participle verb code.
+$(SIGNATURES)
+"""
+function gender(finite::PoSParticiple, codestring::AbstractString)::Union{OSHGender, Nothing}
+    gender(codestring[5])
+end
 
 """Find OSHGender for a suffixed object.
 $(SIGNATURES)
 """
 function gender(finite::PoSSuffix, codestring::AbstractString)::Union{OSHGender, Nothing}
     gender(codestring[5])
+end
+
+
+## Voice
+
+"""Find OSHVoice for a character code.
+$(SIGNATURES)
+"""
+function voice(code::Char)::Union{OSHVoice, Nothing}
+    if code == 'a'
+        OSHActive()
+    elseif code == 'p'
+        OSHPassive()
+    
+    else
+        @error("Invalid value for voice $(code)")
+        nothing
+    end
+end
+
+
+"""Find OSHVoice for a morphological code.
+$(SIGNATURES)
+"""
+function voice(code::AbstractString)::Union{OSHVoice, Nothing}
+    voice(speechpart(code), code)
+end
+
+"""Catch-all method for multiple dispatch.
+$(SIGNATURES)
+"""
+function voice(speechpartvalue::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHVoice, Nothing}
+    @error("No implementation of gender function for $(typeof(speechpartvalue))")
+    nothing
+end
+
+
+"""Find OSHVoice for a participle code.
+$(SIGNATURES)
+"""
+function voice(finite::PoSParticiple, codestring::AbstractString)::Union{OSHVoice, Nothing}
+    if isempty(codestring) || length(codestring) < 4
+        @error("Invalid participle code $(codestring)")
+        nothing
+
+    elseif codestring[4] == 'r' 
+        OSHActive()
+    elseif codestring[4] == 's' 
+        OSHPassive()
+    else
+        @error("Invalid character for participle voice in $(codestring)")
+        nothing
+    end
 end

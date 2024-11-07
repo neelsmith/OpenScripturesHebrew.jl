@@ -25,13 +25,17 @@ end
     inf = infinitive(code)
     @test inf isa OSHInfinitive
     @test conjugation(inf) isa OSHHiphil
-    @test nounstate(inf) isa OSHConstruct
-    
-    
-    
-    
+    @test substantive_state(inf) isa OSHConstruct
+   
 end
 
-# Noun code to test:  HNcmpa
-# Verb code to test: HVqp3ms
+@testset "Test parsing participle codes"  begin
+    code = "HVprfsa"  # Verb piel participle active feminine singular absolute
+
+end
+
+
+@testset "Test parsing noun codes"  begin
+    code = "HNcmpa"
+end
 
