@@ -42,9 +42,17 @@ function conjugation(lang::HebrewLanguage, codestring::AbstractString)::Union{OS
         @error("Invalid argument for conjugation $(codestring)")
         nothing
     else
-        conjugation(lang, codesring[3])
+        conjugation(lang, codestring[3])
     end
 end
+
+"""Find conjugation for a morphological code.
+$(SIGNATURES)
+"""
+function conjugation(code::AbstractString)::Union{OSHConjugation, Nothing}
+    conjugation(language(code), code)
+end
+
 
 """Find Hebrew verb type ("tense") for a morphological code.
 $(SIGNATURES)
@@ -74,6 +82,15 @@ function verbtype(lang::HebrewLanguage, codestring)::Union{OSHVerbType, Nothing}
         nothing
     end
 end
+
+
+"""Find verb type for a morphological code.
+$(SIGNATURES)
+"""
+function verbtype(codestring)::Union{OSHVerbType, Nothing}
+    verbtype(language(codestring), codestring)
+end
+
 
 """Find OSHPerson for a character code.
 $(SIGNATURES)
@@ -151,4 +168,47 @@ $(SIGNATURES)
 """
 function number(finite::PoSFiniteVerb, codestring::AbstractString)::Union{OSHNumber, Nothing}
     number(codestring[7])
+end
+
+
+"""Find OSHGender for a character code.
+$(SIGNATURES)
+"""
+function gender(code::Char)::Union{OSHGender, Nothing}
+    if code == 'c' || code == 'b'
+        OSHCommon()
+    elseif code == 'f'
+        OSHFeminine()
+    elseif code == 'm'
+        OSHMasculine()
+    else
+        @error("Invalid value for gender $(code)")
+        nothing
+    end
+end
+
+
+"""Find OSHGender for a morphological code.
+$(SIGNATURES)
+"""
+function gender(code::AbstractString)::Union{OSHGender, Nothing}
+    gender(pos(code), code)
+end
+
+
+"""Catch-all method for multiple dispatch.
+$(SIGNATURES)
+"""
+function gender(posvalue::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHGender, Nothing}
+    @error("No implementation of gender function for $(typeof(posvalue))")
+    nothing
+end
+
+
+
+"""Find OSHGender for a finite verb code.
+$(SIGNATURES)
+"""
+function gender(finite::PoSFiniteVerb, codestring::AbstractString)::Union{OSHGender, Nothing}
+    gender(codestring[6])
 end

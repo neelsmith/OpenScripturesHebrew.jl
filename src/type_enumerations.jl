@@ -54,6 +54,7 @@ struct OSHDual <: OSHNumber end
 # Enumeration of gender:
 struct OSHMasculine <: OSHGender end
 struct OSHFeminine <: OSHGender end
+struct OSHCommon <: OSHGender end
 
 # Enumeration of values for voice:
 struct OSHActive <: OSHVoice end

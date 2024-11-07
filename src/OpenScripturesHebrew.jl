@@ -11,6 +11,7 @@ export pos
 export parsecode
 
 export OSHInfinitive, infinitive
+export OSHFiniteVerb, finiteverb
 
 export conjugation, verbtype, person, number, gender
 
@@ -19,10 +20,9 @@ include("bookids.jl")
 
 
 include("abstracttypes.jl")
-include("morphology_types.jl")
+include("type_enumerations.jl")
 
 include("lang_pos.jl")
-
 
 
 include("finiteverb.jl")
