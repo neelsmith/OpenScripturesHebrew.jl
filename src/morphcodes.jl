@@ -3,6 +3,10 @@ abstract type OSHLanguage end
 struct HebrewLanguage <: OSHLanguage end
 struct AramaicLanguage <: OSHLanguage end
 
+
+"""Find language for a OSH code string.
+$(SIGNATURES)
+"""
 function language(codestring)::Union{OSHLanguage, Nothing}
     if isempty(codestring)
         @error("Invalid argument for morphological code: empty string")
@@ -35,6 +39,10 @@ function pos(lang::OSHLanguage, codestring)
     @error("Function pos not implemented for $(typeof(lang))")
 end
 
+
+"""Find part of speech for a Hebrew token.
+$(SIGNATURES)
+"""
 function pos(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
     if isempty(codestring)
         @error("Invalid argument for morphological code: empty string")
@@ -63,17 +71,3 @@ function pos(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
         nothing
     end
 end
-
-#=
-posstrings = Dict(
-    'A' => "adjective",
-    'C' => "conjunction",
-    'D' => "adverb",
-    'N' => "noun",
-    'P' => "pronoun",
-    'S' => "suffix",
-    'T' => "particle",
-    'V' => "verb"
-)
-    
-=#

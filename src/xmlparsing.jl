@@ -52,4 +52,17 @@ end
 
 
 function parseword(n::EzXML.Node)
+    code = morphcode(n)
+    if isnothing(code)
+        @error("Node $(n) ($(nodename(n))) does not have a morphology code.")
+        nothing
+    else
+        parseword(code)
+    end
+end
+
+
+function parseword(code::AbstractString)
+    lang = language(code)
+    wordpos = pos(lang, code)
 end
