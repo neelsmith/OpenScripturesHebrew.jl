@@ -64,3 +64,8 @@ struct OSHPassive <: OSHVoice end
 struct OSHAbsolute <: OSHSubstantiveState end
 struct OSHConstruct <: OSHSubstantiveState end
 
+# Enumeration of noun types:
+struct OSHCommonNoun <: OSHNounType end
+struct OSHProperName <: OSHNounType end
+struct OSHGentilic <: OSHNounType end
+

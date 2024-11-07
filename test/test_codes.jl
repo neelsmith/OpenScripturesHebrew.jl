@@ -43,5 +43,11 @@ end
 
 @testset "Test parsing noun codes"  begin
     code = "HNcmpa"
+    n = noun(code)
+    @test n isa OSHNoun
+    @test gender(n) isa OSHMasculine
+    @test number(n) isa OSHPlural
+    @test substantive_state(n) isa OSHAbsolute
+    @test nountype(n) isa OSHCommonNoun
 end
 

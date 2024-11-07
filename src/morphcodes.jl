@@ -206,6 +206,12 @@ function number(finite::PoSParticiple, codestring::AbstractString)::Union{OSHNum
     number(codestring[6])
 end
 
+"""Find OSHNumber for a noun.
+$(SIGNATURES)
+"""
+function number(finite::PoSNoun, codestring::AbstractString)::Union{OSHNumber, Nothing}
+    number(codestring[5])
+end
 
 
 """Find OSHNumber for a suffixed object.
@@ -269,6 +275,15 @@ function gender(finite::PoSParticiple, codestring::AbstractString)::Union{OSHGen
     gender(codestring[5])
 end
 
+
+"""Find OSHGender for a noun code.
+$(SIGNATURES)
+"""
+function gender(finite::PoSNoun, codestring::AbstractString)::Union{OSHGender, Nothing}
+    gender(codestring[4])
+end
+
+
 """Find OSHGender for a suffixed object.
 $(SIGNATURES)
 """
@@ -325,6 +340,38 @@ function voice(finite::PoSParticiple, codestring::AbstractString)::Union{OSHVoic
         OSHPassive()
     else
         @error("Invalid character for participle voice in $(codestring)")
+        nothing
+    end
+end
+
+
+## Noun types
+
+function nountype(ch::Char)::Union{OSHNounType, Nothing}
+    if ch == 'g'
+        OSHGentilic()
+    elseif ch == 'c'
+        OSHCommonNoun()
+    elseif ch == 'p'
+        OSHProperName
+    else
+        @error("Invalid code for nount type $(ch)")
+        nothing
+    end
+end
+
+
+
+## Substantive state
+
+function substantive_state(ch::Char)::Union{OSHSubstantiveState, Nothing}
+    if ch == 'a'
+        OSHAbsolute()
+    elseif ch == 'c'
+        OSHConstruct()
+
+    else
+        @error("Invalid code for substantive state $(ch)")
         nothing
     end
 end

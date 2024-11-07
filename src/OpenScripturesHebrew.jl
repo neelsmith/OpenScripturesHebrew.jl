@@ -17,6 +17,7 @@ export parsecode, parseword
 export OSHInfinitive, infinitive
 export OSHFiniteVerb, finiteverb
 export OSHParticiple, participle
+export OSHNoun, noun
 
 export conjugation
 export OSHQal, OSHHiphil, OSHPiel, OSHNiphal, OSHPual, OSHHophal, OSHQalPassive
@@ -36,6 +37,9 @@ export OSHMasculine, OSHFeminine, OSHCommon
 export substantive_state
 export OSHAbsolute, OSHConstruct
 
+export nountype
+export OSHGentilic, OSHCommonNoun, OSHProperName
+
 export voice
 export OSHActive, OSHPassive
 
@@ -53,6 +57,7 @@ include("lang_pos.jl")
 include("finiteverb.jl")
 include("infinitive.jl")
 include("participle.jl")
+include("nouns.jl")
 include("suffixes.jl")
 
 
