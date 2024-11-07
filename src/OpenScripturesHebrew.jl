@@ -1,5 +1,9 @@
 module OpenScripturesHebrew
 
-greet() = print("Hello World!")
+
+include("morphcodes.jl")
+
+
+export language, HebrewLanguage, AramaicLanguage
 
 end # module OpenScripturesHebrew
