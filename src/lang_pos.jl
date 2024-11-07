@@ -1,8 +1,6 @@
-abstract type OSHLanguage end
 
 struct HebrewLanguage <: OSHLanguage end
 struct AramaicLanguage <: OSHLanguage end
-
 
 """Find language for a OSH code string.
 $(SIGNATURES)
@@ -22,7 +20,6 @@ function language(codestring)::Union{OSHLanguage, Nothing}
 end
 
 
-abstract type OSHPartOfSpeech end
 struct OSHAdjective <: OSHPartOfSpeech end
 struct OSHConjunction <: OSHPartOfSpeech end
 struct OSHAdverb <: OSHPartOfSpeech end

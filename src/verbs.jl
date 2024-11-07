@@ -17,7 +17,7 @@ struct OSHPilpel <: OSHConjugation end
 
 
 
-"""Find conjugation of a Hebrew verb.
+"""Find conjugation for a Hebrew verb code.
 $(SIGNATURES)
 """
 function conjugation(lang::HebrewLanguage, codestring)::Union{OSHConjugation, Nothing}
@@ -53,4 +53,13 @@ function conjugation(lang::HebrewLanguage, codestring)::Union{OSHConjugation, No
     else
         @error("Unrecognized value for conjugation $(codestring)")
     end
+end
+
+
+function isverb(lang::HebrewLanguage, codestring)
+    pos
+end
+
+function isinfinitive(lang::HebrewLanguage, codestring)::Bool
+
 end

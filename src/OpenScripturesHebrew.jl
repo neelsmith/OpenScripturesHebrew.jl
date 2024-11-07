@@ -11,14 +11,18 @@ export pos, OSHAdjective, OSHAdverb, OSHConjunction, OSHNoun, OSHPronoun, OSHSuf
 export conjugation 
 
 
+include("bookids.jl")
+
 
 include("abstracttypes.jl")
-include("bookids.jl")
 include("lang_pos.jl")
 include("verbs.jl")
+include("infinitive.jl")
+
+
 include("xmlparsing.jl")
 
-include("infinitive.jl")
+
 
 
 
