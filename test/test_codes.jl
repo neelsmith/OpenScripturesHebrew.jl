@@ -31,7 +31,13 @@ end
 
 @testset "Test parsing participle codes"  begin
     code = "HVprfsa"  # Verb piel participle active feminine singular absolute
-
+    ptcpl = participle(code)
+    @test ptcpl isa OSHParticiple
+    @test conjugation(ptcpl) isa OSHPiel
+    @test voice(ptcpl) isa OSHActive
+    @test gender(ptcpl) isa OSHFeminine
+    @test number(ptcpl) isa OSHSingular
+    @test substantive_state(ptcpl) isa OSHAbsolute
 end
 
 
