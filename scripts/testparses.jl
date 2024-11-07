@@ -30,12 +30,12 @@ for (i, wd) in enumerate(wordlist)
     #@info(string(i,"..."))
     code = OpenScripturesHebrew.attributevalue(wd, "morph")
     
-    posobject = pos(H, code)
-    if isnothing(posobject)
+    speechpartobject = speechpart(H, code)
+    if isnothing(speechpartobject)
         @info("Could not get part of speech from word $(i) with code $(code) and string $(strval)")
     else
 
-        @info(string(strval,": ", posobject))
+        @info(string(strval,": ", speechpartobject))
     end
 end
 

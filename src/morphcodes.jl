@@ -116,14 +116,14 @@ end
 $(SIGNATURES)
 """
 function person(code::AbstractString)::Union{OSHPerson, Nothing}
-    person(pos(code), code)
+    person(speechpart(code), code)
 end
 
 """Catch-all method for multiple dispatch.
 $(SIGNATURES)
 """
-function person(pos::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHPerson, Nothing}
-    @error("No implementation of person function for $(typeof(pos))")
+function person(speechpart::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHPerson, Nothing}
+    @error("No implementation of person function for $(typeof(speechpart))")
     nothing
 end
 
@@ -166,14 +166,14 @@ end
 $(SIGNATURES)
 """
 function number(code::AbstractString)::Union{OSHNumber, Nothing}
-    number(pos(code), code)
+    number(speechpart(code), code)
 end
 
 """Catch-all method for multiple dispatch.
 $(SIGNATURES)
 """
-function number(posvalue::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHNumber, Nothing}
-    @error("No implementation of number function for $(typeof(posvalue))")
+function number(speechpartvalue::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHNumber, Nothing}
+    @error("No implementation of number function for $(typeof(speechpartvalue))")
     nothing
 end
 
@@ -217,15 +217,15 @@ end
 $(SIGNATURES)
 """
 function gender(code::AbstractString)::Union{OSHGender, Nothing}
-    gender(pos(code), code)
+    gender(speechpart(code), code)
 end
 
 
 """Catch-all method for multiple dispatch.
 $(SIGNATURES)
 """
-function gender(posvalue::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHGender, Nothing}
-    @error("No implementation of gender function for $(typeof(posvalue))")
+function gender(speechpartvalue::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHGender, Nothing}
+    @error("No implementation of gender function for $(typeof(speechpartvalue))")
     nothing
 end
 

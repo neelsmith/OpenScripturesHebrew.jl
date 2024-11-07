@@ -3,8 +3,8 @@
     @test language(code) isa HebrewLanguage
 
     H = HebrewLanguage()
-    @test pos(H, "HNcmpa") isa OpenScripturesHebrew.PoSNoun
-    @test pos(H, "HVqp3ms") isa OpenScripturesHebrew.PoSFiniteVerb
+    @test speechpart(H, "HNcmpa") isa OpenScripturesHebrew.PoSNoun
+    @test speechpart(H, "HVqp3ms") isa OpenScripturesHebrew.PoSFiniteVerb
     # "HVqa"
 end
 

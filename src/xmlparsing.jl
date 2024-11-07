@@ -29,7 +29,7 @@ function lemma(n::EzXML.Node)
     attributevalue(n,"lemma")
 end
 
-"""Download book from OSH github repository and compile word list.
+"""Download book from OSH github respeechpartitory and compile word list.
 $(SIGNATURES)
 """
 function compilewords_remote(bookname::AbstractString)
@@ -83,7 +83,7 @@ function compilewords(f)
                 #end
                 for (i, mtoken) in enumerate(mtokens)
                     codeval = i > 1 ? "H" * codes[i] : codes[i]
-                    lemmaval =  pos(codeval) isa PoSSuffix ? "suffixed_object" : lemmas[i]
+                    lemmaval =  speechpart(codeval) isa PoSSuffix ? "suffixed_object" : lemmas[i]
                         #@info("Suffix: $(length(lemmas)) lemmas / $(length(mtokens)) tokens")
                     #end
                     grouping = (urn = urn, code = codeval,  mtoken = mtoken, otoken = otoken, lemma = lemmaval)
@@ -114,16 +114,16 @@ $(SIGNATURES)
 """
 function parsecode(code::AbstractString)
     lang = language(code)
-    wordpos = pos(lang, code)
-    parseword(wordpos, code)
+    wordspeechpart = speechpart(lang, code)
+    parseword(wordspeechpart, code)
 end
 
 
 """Catch-all method for multiple dispatch.
 $(SIGNATURES)
 """
-function parseword(pos::OSHPartOfSpeech, code::AbstractString)
-    @warn("parseword function not implemented for $(typeof(pos))")
+function parseword(speechpart::OSHPartOfSpeech, code::AbstractString)
+    @warn("parseword function not implemented for $(typeof(speechpart))")
     nothing
 end
 

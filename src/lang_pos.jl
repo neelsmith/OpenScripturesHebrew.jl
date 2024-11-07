@@ -18,22 +18,22 @@ end
 """Catch-all method for multiple dispatch.
 $(SIGNATURES)
 """
-function pos(lang::OSHLanguage, codestring)
-    @warn("Function pos not implemented for $(typeof(lang))")
+function speechpart(lang::OSHLanguage, codestring)
+    @warn("Function speechpart not implemented for $(typeof(lang))")
     nothing
 end
 
 """Find part of speech for a morphological code.
 $(SIGNATURES)
 """
-function pos(codestring)::Union{OSHPartOfSpeech, Nothing}
-    pos(language(codestring), codestring)
+function speechpart(codestring)::Union{OSHPartOfSpeech, Nothing}
+    speechpart(language(codestring), codestring)
 end
 
 """Find Hebrew part of speech for a morphological code.
 $(SIGNATURES)
 """
-function pos(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
+function speechpart(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
     if isempty(codestring)
         @error("Invalid argument for morphological code: empty string")
         nothing
@@ -49,7 +49,7 @@ function pos(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
     elseif codestring[2] == 'P'
         PoSPronoun()
     elseif codestring[2] == 'R'
-        PoSPreposition()        
+        PoSPrespeechpartition()        
     elseif codestring[2] == 'S'
         PoSSuffix()
     elseif codestring[2] == 'T'

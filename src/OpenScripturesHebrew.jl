@@ -11,7 +11,7 @@ export compilewords, compilewords_remote
 export torah
 
 export language, HebrewLanguage, AramaicLanguage
-export pos
+export speechpart
 export parsecode, parseword
 
 export OSHInfinitive, infinitive
@@ -34,7 +34,6 @@ export OSHMasculine, OSHFeminine, OSHCommon
 
 export nounstate
 export OSHAbsolute, OSHConstruct
-
 
 export resolvebdb
 

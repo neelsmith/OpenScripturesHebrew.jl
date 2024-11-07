@@ -1,6 +1,6 @@
 struct OSHInfinitive <: OSHMorphologicalForm
-    state#::OSHNounState
-    conjugation#::OSHConjugation
+    state::OSHNounState
+    conjugation::OSHConjugation
 end
 
 """Instantiate an infinitive from a morphological code string.
@@ -22,7 +22,6 @@ function infinitive(code::AbstractString)
     OSHInfinitive(stateval, conj)
 
 end
-
 
 function nounstate(inf::OSHInfinitive)
     inf.state
