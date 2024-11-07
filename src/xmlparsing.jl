@@ -24,21 +24,20 @@ end
 """Parse file and compile a list of `w` elements keyed by URN.
 $(SIGNATURES)
 """
-function compilewords(f)
+function compilewordlist(f)
     wordlist = []
     parsed = readxml(f)
     book = findfirst("//osis:div", parsed.root, [ "osis" => OSIS])
     # Chapters:
     bookchapters = findall("./osis:chapter", book,  [ "osis" => OSIS])
     for chapter in bookchapters
-        
-        
-        # Verse:
+        # Verses:
         verses = findall("./osis:verse", chapter, [ "osis" => OSIS])
         for verse in verses
             refstring = attributevalue(verse, "osisID")
             (bookid, chaptid, ref) = split(refstring, ".")
-            urn = "urn:cts:compnov:bible.$(bookids[bookid]).masoretic:$(chaptid).$(ref)"
+            # URN for verse:
+            urn = "urn:cts:compnov:bible.$(bookids[bookid]).osh:$(chaptid).$(ref)"
 
             for wrd in  findall("./osis:w", verse, [ "osis" => OSIS])
                 otoken = nodecontent(wrd)
@@ -50,8 +49,6 @@ function compilewords(f)
                     grouping = (urn = urn, code = codeval, mtoken = mtoken, otoken = otoken)
                     push!(wordlist, grouping)
                end
-                #pairing = (urn = urn, code = morphcode(wrd), token = tkn)
-                #push!(wordlist, pairing)
             end
         end
     end

@@ -1,20 +1,26 @@
 
-# Enumeration of conjugations:
+"""True if code string represents a verb (finite or infinitive form).
+$(SIGNATURES)
+"""
+function isverb(codestring)::Bool
+    pos(language(codestring), codestring) isa OSHVerb
+end
 
-struct OSHQal <: OSHConjugation end
-struct OSHHiphil <: OSHConjugation end
-struct OSHPiel <: OSHConjugation end
-struct OSHNiphal <: OSHConjugation end
-struct OSHPual <: OSHConjugation end
-struct OSHHophal <: OSHConjugation end
-struct OSHTiphil <: OSHConjugation end
-struct OSHQalPassive <: OSHConjugation end
-struct OSHHishtaphel <: OSHConjugation end
-struct OSHHithpalpel <: OSHConjugation end
-struct OSHPolel <: OSHConjugation end
-struct OSHHithpolel <: OSHConjugation end
-struct OSHPilpel <: OSHConjugation end
 
+"""True if code string represents a finite verb form.
+$(SIGNATURES)
+"""
+function isfiniteverb(codestring)::Bool
+    isverb(codestring) && length(codestring) == 7
+end
+
+
+"""True if code string represents an infinitive verb form.
+$(SIGNATURES)
+"""
+function isinfinitive(codestring)::Bool
+    isverb(codestring) && length(codestring) == 4
+end
 
 
 """Find conjugation for a Hebrew verb code.
@@ -55,11 +61,26 @@ function conjugation(lang::HebrewLanguage, codestring)::Union{OSHConjugation, No
     end
 end
 
+function tense(lang::HebrewLanguage, codestring)::Union{OSHVerbType, Nothing}
+    if isempty(codestring) || length(codestring) < 4
+        @error("Invalid argument for tense $(codestring)")
+        nothing
+    elseif codestring[4] == 'p'
+        OSHPerfect() 
+    elseif codestring[4] == 'q'
+        OSHSequentialPerfect()         
+    elseif codestring[4] == 'i'
+        OSHImperfect()         
+    elseif codestring[4] == 'w'
+        OSHSequentialImperfect() 
 
-function isverb(lang::HebrewLanguage, codestring)
-    pos
-end
+    elseif codestring[4] == 'j'
+        OSHJussive()
+    elseif codestring[4] == 'v'
+        OSHImperative()
+    elseif codestring[4] == 'h'
+        OSHCohortative()                 
 
-function isinfinitive(lang::HebrewLanguage, codestring)::Bool
-
+    else
+    end
 end
