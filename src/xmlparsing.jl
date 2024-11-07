@@ -9,3 +9,10 @@ function attributevalue(n::EzXML.Node, attrname)
     end
     isempty(matches) ? nothing : nodecontent(matches[1])
 end
+
+function morphcode(n::EzXML.Node)
+    attributevalue(n,"morph")
+end
+
+function parseword(n::EzXML.Node)
+end

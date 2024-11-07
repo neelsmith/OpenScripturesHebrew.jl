@@ -1,28 +1,27 @@
 using EzXML
 using OpenScripturesHebrew
+
 f = joinpath(pwd(), "test", "xmldata", "Gen.xml")
 parsed = readxml(f)
 
 osis = OpenScripturesHebrew.OSIS
+H = HebrewLanguage()
+
 
 # Book:
-div1 = findfirst("//osis:div", parsed.root, [ "osis" => osis])
+book = findfirst("//osis:div", parsed.root, [ "osis" => osis])
+# Chapters:
+bookchapters = findall("./osis:chapter", book,  [ "osis" => osis])
+# Verse:
+chapterverses = findall("./osis:verse", bookchapters[1], [ "osis" => osis])
 
-# Chapter:
-gen1 = findfirst("//osis:chapter", div1,  [ "osis" => osis])
-
-# Verse:P
-gen1_1 = findfirst("//osis:verse", gen1, [ "osis" => osis])
-
-# WOrds mamybe
-wordlist = findall("//osis:w", gen1_1, [ "osis" => osis])
+# Words of a sort:
+wordlist = findall("./osis:w", chapterverses[1], [ "osis" => osis])
 
 
 wordlist[1]
 
 join(nodename.(attributes(wordlist[1])), ", ")
-
-H = HebrewLanguage()
 
 
 
