@@ -10,10 +10,15 @@ export language, HebrewLanguage, AramaicLanguage
 export pos, OSHAdjective, OSHAdverb, OSHConjunction, OSHNoun, OSHPronoun, OSHSuffix, OSHParticle, OSHVerb, OSHPreposition
 export conjugation 
 
+
+
+include("abstracttypes.jl")
 include("bookids.jl")
 include("lang_pos.jl")
 include("verbs.jl")
 include("xmlparsing.jl")
+
+include("infinitive.jl")
 
 
 

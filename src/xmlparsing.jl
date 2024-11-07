@@ -41,9 +41,17 @@ function compilewords(f)
             urn = "urn:cts:compnov:bible.$(bookids[bookid]).masoretic:$(chaptid).$(ref)"
 
             for wrd in  findall("./osis:w", verse, [ "osis" => OSIS])
-                tkn = nodecontent(wrd)
-                pairing = (urn = urn, code = morphcode(wrd), token = tkn)
-                push!(wordlist, pairing)
+                otoken = nodecontent(wrd)
+
+                codes = split(morphcode(wrd), "/")
+                mtokens = split(otoken, "/")
+                  for (i, mtoken) in enumerate(mtokens)
+                    codeval = i > 1 ? "H" * codes[i] : codes[i]
+                    grouping = (urn = urn, code = codeval, mtoken = mtoken, otoken = otoken)
+                    push!(wordlist, grouping)
+               end
+                #pairing = (urn = urn, code = morphcode(wrd), token = tkn)
+                #push!(wordlist, pairing)
             end
         end
     end

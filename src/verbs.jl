@@ -1,4 +1,5 @@
-abstract type OSHConjugation end
+
+# Enumeration of conjugations:
 
 struct OSHQal <: OSHConjugation end
 struct OSHHiphil <: OSHConjugation end
