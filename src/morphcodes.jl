@@ -92,6 +92,9 @@ function verbtype(codestring)::Union{OSHVerbType, Nothing}
 end
 
 
+
+## Person
+
 """Find OSHPerson for a character code.
 $(SIGNATURES)
 """
@@ -132,6 +135,17 @@ function person(finite::PoSFiniteVerb, codestring::AbstractString)::Union{OSHPer
 end
 
 
+"""Find OSHPerson for a suffix.
+$(SIGNATURES)
+"""
+function person(finite::PoSSuffix, codestring::AbstractString)::Union{OSHPerson, Nothing}
+    person(codestring[4])
+end
+
+
+
+### Number
+
 """Find OSHNumber for a character code.
 $(SIGNATURES)
 """
@@ -170,6 +184,17 @@ function number(finite::PoSFiniteVerb, codestring::AbstractString)::Union{OSHNum
     number(codestring[7])
 end
 
+
+"""Find OSHNumber for a suffixed object.
+$(SIGNATURES)
+"""
+function number(finite::PoSSuffix, codestring::AbstractString)::Union{OSHNumber, Nothing}
+    number(codestring[6])
+end
+
+
+
+### Gender
 
 """Find OSHGender for a character code.
 $(SIGNATURES)
@@ -211,4 +236,13 @@ $(SIGNATURES)
 """
 function gender(finite::PoSFiniteVerb, codestring::AbstractString)::Union{OSHGender, Nothing}
     gender(codestring[6])
+end
+
+
+
+"""Find OSHGender for a suffixed object.
+$(SIGNATURES)
+"""
+function gender(finite::PoSSuffix, codestring::AbstractString)::Union{OSHGender, Nothing}
+    gender(codestring[5])
 end

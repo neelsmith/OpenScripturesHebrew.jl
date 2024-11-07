@@ -8,9 +8,9 @@ struct PoSConjunction <: OSHPartOfSpeech end
 struct PoSAdverb <: OSHPartOfSpeech end
 struct PoSNoun <: OSHPartOfSpeech end
 struct PoSPronoun <: OSHPartOfSpeech end
-struct PoSSuffix <: OSHPartOfSpeech end
 struct PoSParticle <: OSHPartOfSpeech end
 struct PoSPreposition <: OSHPartOfSpeech end
+struct PoSSuffix <: OSHPartOfSpeech end
 
 struct PoSParticiple <: OSHPartOfSpeech end
 struct PoSInfinitive <: OSHPartOfSpeech end

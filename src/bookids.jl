@@ -1,6 +1,10 @@
 
 bookids = Dict(
     [
-        "Gen" => "genesis"
+        "Gen" => "genesis",
+        "Exod" => "exodus",
+        "Lev" => "leviticus",
+        "Num" => "numbers",
+        "Deut" => "deuteronomy"
     ]
 )
