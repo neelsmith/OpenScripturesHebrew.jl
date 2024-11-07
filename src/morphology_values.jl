@@ -28,7 +28,7 @@ struct OSHPolel <: OSHConjugation end
 struct OSHHithpolel <: OSHConjugation end
 struct OSHPilpel <: OSHConjugation end
 
-# Enumeration of tenses:
+# Enumeration of verbtypes:
 struct OSHPerfect <: OSHVerbType end
 struct OSHSequentialPerfect <: OSHVerbType end
 struct OSHImperfect <: OSHVerbType end

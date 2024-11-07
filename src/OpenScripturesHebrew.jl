@@ -10,7 +10,7 @@ export language, HebrewLanguage, AramaicLanguage
 
 export pos, OSHAdjective, OSHAdverb, OSHConjunction, OSHNoun, OSHPronoun, OSHSuffix, OSHParticle, OSHVerb, OSHPreposition
 
-export conjugation, tense
+export conjugation, verbtype
 export isverb, isfiniteverb, isinfinitive
 
 include("bookids.jl")

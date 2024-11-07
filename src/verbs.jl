@@ -61,9 +61,9 @@ function conjugation(lang::HebrewLanguage, codestring)::Union{OSHConjugation, No
     end
 end
 
-function tense(lang::HebrewLanguage, codestring)::Union{OSHVerbType, Nothing}
+function verbtype(lang::HebrewLanguage, codestring)::Union{OSHVerbType, Nothing}
     if isempty(codestring) || length(codestring) < 4
-        @error("Invalid argument for tense $(codestring)")
+        @error("Invalid argument for verbtype $(codestring)")
         nothing
     elseif codestring[4] == 'p'
         OSHPerfect() 
