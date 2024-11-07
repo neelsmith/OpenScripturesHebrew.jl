@@ -2,6 +2,8 @@ module OpenScripturesHebrew
 using Downloads
 using EzXML
 
+using BrownDriverBriggs
+
 using Documenter, DocStringExtensions
 
 export attributevalue
@@ -15,8 +17,22 @@ export parsecode, parseword
 export OSHInfinitive, infinitive
 export OSHFiniteVerb, finiteverb
 
-export conjugation, verbtype, person, number, gender
+export conjugation
+export OSHQal, OSHHiphil, OSHPiel, OSHNiphal, OSHPual, OSHHophal, OSHQalPassive
 
+export verbtype
+export OSHPerfect, OSHSequentialPerfect, OSHImperfect, OSHSequentialImperfect, OSHJussive, OSHImperative, OSHCohortative
+
+export person
+export OSHFirstPerson, OSHSecondPerson, OSHThirdPerson
+
+export number
+export OSHSingular, OSHPlural, OSHDual
+
+export gender
+export OSHMasculine, OSHFeminine, OSHCommon
+
+export resolvebdb
 
 include("bookids.jl")
 
@@ -35,7 +51,7 @@ include("suffixes.jl")
 
 include("morphcodes.jl")
 
-
+include("bdb.jl")
 include("xmlparsing.jl")
 
 

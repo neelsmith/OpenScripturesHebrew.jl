@@ -19,7 +19,7 @@ end
 $(SIGNATURES)
 """
 function pos(lang::OSHLanguage, codestring)
-    @error("Function pos not implemented for $(typeof(lang))")
+    @warn("Function pos not implemented for $(typeof(lang))")
     nothing
 end
 
