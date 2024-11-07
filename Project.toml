@@ -1,0 +1,7 @@
+name = "OpenScripturesHebrew"
+uuid = "a2aa3e71-aced-403c-831b-dc7e729b9ba3"
+authors = ["Neel Smith <dnsmith.neel@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+EzXML = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
