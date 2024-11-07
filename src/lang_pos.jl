@@ -22,6 +22,24 @@ function pos(lang::OSHLanguage, codestring)
 end
 
 
+function verbpos(lang::OSHLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
+    if isparticiple(codestring)
+        PosParticiple()
+    elseif isinfinitive(codestring)
+        PoSInfinitive() 
+    elseif isfiniteverb(codestring)        
+       PosFiniteVerb()
+        
+    else
+        @error("Could not find valid verb type $(codestring)")
+        nothing
+    end
+end
+
+function pos(codestring)::Union{OSHPartOfSpeech, Nothing}
+    pos(language(codestring), codestring)
+end
+
 """Find part of speech for a Hebrew token.
 $(SIGNATURES)
 """
@@ -31,23 +49,32 @@ function pos(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
         nothing
 
     elseif codestring[2] == 'A'
-        OSHAdjective()
+        PoSAdjective()
     elseif codestring[2] == 'C'
-        OSHConjunction()
+        PoSConjunction()
     elseif codestring[2] == 'D'
-        OSHAdverb()
+        PoSAdverb()
     elseif codestring[2] == 'N'
-        OSHNoun()
+        PoSNoun()
     elseif codestring[2] == 'P'
-        OSHPronoun()
+        PoSPronoun()
     elseif codestring[2] == 'R'
-        OSHPreposition()        
+        PoSPreposition()        
     elseif codestring[2] == 'S'
-        OSHSuffix()
+        PoSSuffix()
     elseif codestring[2] == 'T'
-        OSHParticle()
+        PoSParticle()
+
+
     elseif codestring[2] == 'V'
-        OSHVerb()
+        if length(codestring) == 4
+            PoSInfinitive()
+        elseif codestring[4] == 'r' || codestring[4] == 's'
+            PoSParticiple()
+        else
+            PoSFiniteVerb()
+        end
+
     else
         @error("Invalid code for part of speech $(codestring[2]) (code $(codestring))")
         nothing

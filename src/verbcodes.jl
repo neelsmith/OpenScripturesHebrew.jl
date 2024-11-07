@@ -3,7 +3,7 @@
 $(SIGNATURES)
 """
 function isverb(codestring)::Bool
-    pos(language(codestring), codestring) isa OSHVerb
+    #pos(language(codestring), codestring) isa OSHVerb
 end
 
 
@@ -11,7 +11,7 @@ end
 $(SIGNATURES)
 """
 function isfiniteverb(codestring)::Bool
-    isverb(codestring) && length(codestring) == 7
+    #isverb(codestring) && !(isinfinitive(codestring)) && !(isparticiple(codestring))
 end
 
 
@@ -19,7 +19,13 @@ end
 $(SIGNATURES)
 """
 function isinfinitive(codestring)::Bool
-    isverb(codestring) && length(codestring) == 4
+    #isverb(codestring) && length(codestring) == 4
+end
+
+
+function isparticiple(codestring)::Bool
+    #isverb(codestring) && length(codestring) == 7 && 
+   # (codestring[4] == 'r' || codestring[4] == 's')
 end
 
 

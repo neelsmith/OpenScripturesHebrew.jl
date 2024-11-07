@@ -3,7 +3,7 @@
     @test language(code) isa HebrewLanguage
 
     H = HebrewLanguage()
-    @test pos(H, "HNcmpa") isa OSHNoun
+    @test pos(H, "HNcmpa") isa PoSNoun
     @test pos(H, "HVqp3ms") isa OSHVerb
     # "HVqa"
 end
