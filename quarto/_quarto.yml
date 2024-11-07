@@ -1,0 +1,50 @@
+project:
+  type: website
+theme: spacelab
+execute:
+  freeze: auto
+date: last-modified  
+margin-header: "Package version: `0.1.0`"
+
+format:
+  html: 
+    toc: true
+
+
+website:
+  
+  title: "openscriptureshebrew"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Tutorials"
+        file: tutorials/index.qmd          
+     
+            
+    right:   
+      - icon: github
+        href: https://github.com/neelsmith/OpenScripturesHebrew.jl
+        aria-label: GitHub
+      - icon: person-circle
+        menu:
+          - text: "About me"
+            href: https://neelsmith.quarto.pub
+          - text: "More of my digital scholarship"
+            href: https://neelsmith.quarto.pub/digschol/
+        aria-label: "More of my work"
+        
+  sidebar:
+    - title: "Tutorials"
+      contents: 
+        - tutorials/index.qmd
+        
+
+    - title: "Home"
+      contents:
+        - index.qmd               
+ 
+
+           
