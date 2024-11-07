@@ -75,3 +75,80 @@ function verbtype(lang::HebrewLanguage, codestring)::Union{OSHVerbType, Nothing}
     end
 end
 
+"""Find OSHPerson for a character code.
+$(SIGNATURES)
+"""
+function person(code::Char)::Union{OSHPerson, Nothing}
+    if code == '1'
+        OSHFirstPerson()
+    elseif code == '2'
+        OSHSecondPerson()
+
+    elseif code == '3'
+        OSHThirdPerson()
+    else
+        @error("Invalid value for person: $(code)")
+        nothing
+    end
+end
+
+"""
+$(SIGNATURES)
+"""
+function person(code::AbstractString)::Union{OSHPerson, Nothing}
+    person(pos(code), code)
+end
+
+"""Catch-all method for multiple dispatch.
+$(SIGNATURES)
+"""
+function person(pos::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHPerson, Nothing}
+    @error("No implementation of person function for $(typeof(pos))")
+    nothing
+end
+
+"""Find OSHPerson for a finite verb code.
+$(SIGNATURES)
+"""
+function person(finite::PoSFiniteVerb, codestring::AbstractString)::Union{OSHPerson, Nothing}
+    person(codestring[5])
+end
+
+
+"""Find OSHNumber for a character code.
+$(SIGNATURES)
+"""
+function number(code::Char)::Union{OSHNumber, Nothing}
+    if code == 's'
+        OSHSingular()
+    elseif code == 'p'
+        OSHPlural()
+    elseif code == 'd'
+        OSHDual()
+    else
+        @error("Invalid value for number $(code)")
+        nothing
+    end
+end
+
+"""Find OSHNumber for a morphological code.
+$(SIGNATURES)
+"""
+function number(code::AbstractString)::Union{OSHNumber, Nothing}
+    number(pos(code), code)
+end
+
+"""Catch-all method for multiple dispatch.
+$(SIGNATURES)
+"""
+function number(posvalue::OSHPartOfSpeech, codestring::AbstractString)::Union{OSHNumber, Nothing}
+    @error("No implementation of number function for $(typeof(posvalue))")
+    nothing
+end
+
+"""Find OSHNumber for a finite verb code.
+$(SIGNATURES)
+"""
+function number(finite::PoSFiniteVerb, codestring::AbstractString)::Union{OSHNumber, Nothing}
+    number(codestring[7])
+end

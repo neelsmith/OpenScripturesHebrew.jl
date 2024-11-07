@@ -55,7 +55,9 @@ function compilewordlist(f)
     wordlist
 end
 
-
+"""Parse an XML Node into a morphological object.
+$(SIGNATURES)
+"""
 function parseword(n::EzXML.Node)
     code = morphcode(n)
     if isnothing(code)
@@ -66,18 +68,28 @@ function parseword(n::EzXML.Node)
     end
 end
 
-
-# Dispatch by part of speech
+"""Parse a morphological code into a mnorphological object.
+$(SIGNATURES)
+"""
 function parsecode(code::AbstractString)
     lang = language(code)
     wordpos = pos(lang, code)
     parseword(wordpos, code)
 end
 
+
+"""Catch-all method for multiple dispatch.
+$(SIGNATURES)
+"""
 function parseword(pos::OSHPartOfSpeech, code::AbstractString)
     @warn("parseword function not implemented for $(typeof(pos))")
+    nothing
 end
 
+
+"""Parse a code for an infinitive form into a morphological object.
+$(SIGNATURES)
+F"""
 function parseword(inf::PoSInfinitive, code::AbstractString)
     infinitive(code)
 end

@@ -3,6 +3,9 @@ struct OSHInfinitive <: OSHMorphologicalForm
     conjugation#::OSHConjugation
 end
 
+"""Instantiate an infinitive from a morphological code string.
+$(SIGNATURES)
+"""
 function infinitive(code::AbstractString)
     if length(code) < 4
         @error("Invalid code $(code)")

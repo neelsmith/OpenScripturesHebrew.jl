@@ -12,9 +12,6 @@ struct PoSSuffix <: OSHPartOfSpeech end
 struct PoSParticle <: OSHPartOfSpeech end
 struct PoSPreposition <: OSHPartOfSpeech end
 
-
-
-
 struct PoSParticiple <: OSHPartOfSpeech end
 struct PoSInfinitive <: OSHPartOfSpeech end
 struct PoSFiniteVerb <: OSHPartOfSpeech end
@@ -52,27 +49,15 @@ struct OSHThirdPerson <: OSHPerson end
 # Enumeration of number:
 struct OSHSingular <: OSHNumber end
 struct OSHPlural <: OSHNumber end
+struct OSHDual <: OSHNumber end
 
 # Enumeration of gender:
 struct OSHMasculine <: OSHGender end
 struct OSHFeminine <: OSHGender end
 
-
 # Enumeration of values for voice:
 struct OSHActive <: OSHVoice end
 struct OSPassive <: OSHVoice end
-
-
-
-#=
-
-r	participle active
-s	participle passive
-
-a	infinitive absolute
-c	infinitive c
-=#
-
 
 # Enumeration of noun states:
 struct OSHAbsolute <: OSHNounState end

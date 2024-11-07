@@ -7,23 +7,19 @@ export attributevalue, morphcode, parseword
 export compilewordlist
 
 export language, HebrewLanguage, AramaicLanguage
-
+export pos
 export parsecode
 
-export pos #, PoSAdjective, PoSAdverb, PoSConjunction, PoSNoun, PoSPronoun, PoSSuffix, PoSParticle, PoSPreposition
-# export PoSFiniteVerb, PoSInfinitive, PoSParticiple
+export OSHInfinitive, infinitive
 
+export conjugation, verbtype, person, number, gender
 
-#export 
-
-export conjugation, verbtype
-export isverb, isfiniteverb, isinfinitive, isparticiple
 
 include("bookids.jl")
 
 
 include("abstracttypes.jl")
-include("morphology_values.jl")
+include("morphology_types.jl")
 
 include("lang_pos.jl")
 
@@ -34,7 +30,7 @@ include("infinitive.jl")
 include("participle.jl")
 
 
-include("verbcodes.jl")
+include("morphcodes.jl")
 
 
 include("xmlparsing.jl")
