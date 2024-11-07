@@ -49,7 +49,7 @@ function speechpart(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, No
     elseif codestring[2] == 'P'
         PoSPronoun()
     elseif codestring[2] == 'R'
-        PoSPrespeechpartition()        
+        PoSPreposition()        
     elseif codestring[2] == 'S'
         PoSSuffix()
     elseif codestring[2] == 'T'

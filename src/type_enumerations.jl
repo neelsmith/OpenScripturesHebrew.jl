@@ -9,7 +9,7 @@ struct PoSAdverb <: OSHPartOfSpeech end
 struct PoSNoun <: OSHPartOfSpeech end
 struct PoSPronoun <: OSHPartOfSpeech end
 struct PoSParticle <: OSHPartOfSpeech end
-struct PoSPrespeechpartition <: OSHPartOfSpeech end
+struct PoSPreposition <: OSHPartOfSpeech end
 struct PoSSuffix <: OSHPartOfSpeech end
 
 struct PoSParticiple <: OSHPartOfSpeech end
