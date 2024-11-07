@@ -26,6 +26,7 @@ struct OSHNoun <: OSHPartOfSpeech end
 struct OSHPronoun <: OSHPartOfSpeech end
 struct OSHSuffix <: OSHPartOfSpeech end
 struct  OSHParticle <: OSHPartOfSpeech end
+struct OSHPreposition <: OSHPartOfSpeech end
 struct OSHVerb <: OSHPartOfSpeech end
 
 
@@ -49,6 +50,8 @@ function pos(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
         OSHNoun()
     elseif codestring[2] == 'P'
         OSHPronoun()
+    elseif codestring[2] == 'R'
+        OSHPreposition()        
     elseif codestring[2] == 'S'
         OSHSuffix()
     elseif codestring[2] == 'T'
@@ -56,7 +59,7 @@ function pos(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
     elseif codestring[2] == 'V'
         OSHVerb()
     else
-        @error("Invalid language code $(codestring[1])")
+        @error("Invalid code for part of speech $(codestring[2]) (code $(codestring))")
         nothing
     end
 end
