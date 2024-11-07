@@ -15,31 +15,22 @@ function language(codestring)::Union{OSHLanguage, Nothing}
     end
 end
 
-
+"""Catch-all method for multiple dispatch.
+$(SIGNATURES)
+"""
 function pos(lang::OSHLanguage, codestring)
     @error("Function pos not implemented for $(typeof(lang))")
+    nothing
 end
 
-
-function verbpos(lang::OSHLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
-    if isparticiple(codestring)
-        PosParticiple()
-    elseif isinfinitive(codestring)
-        PoSInfinitive() 
-    elseif isfiniteverb(codestring)        
-       PosFiniteVerb()
-        
-    else
-        @error("Could not find valid verb type $(codestring)")
-        nothing
-    end
-end
-
+"""Find part of speech for a morphological code.
+$(SIGNATURES)
+"""
 function pos(codestring)::Union{OSHPartOfSpeech, Nothing}
     pos(language(codestring), codestring)
 end
 
-"""Find part of speech for a Hebrew token.
+"""Find Hebrew part of speech for a morphological code.
 $(SIGNATURES)
 """
 function pos(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
@@ -63,7 +54,6 @@ function pos(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, Nothing}
         PoSSuffix()
     elseif codestring[2] == 'T'
         PoSParticle()
-
 
     elseif codestring[2] == 'V'
         if length(codestring) == 4

@@ -12,6 +12,9 @@ struct PoSSuffix <: OSHPartOfSpeech end
 struct PoSParticle <: OSHPartOfSpeech end
 struct PoSPreposition <: OSHPartOfSpeech end
 
+
+
+
 struct PoSParticiple <: OSHPartOfSpeech end
 struct PoSInfinitive <: OSHPartOfSpeech end
 struct PoSFiniteVerb <: OSHPartOfSpeech end

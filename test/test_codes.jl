@@ -4,11 +4,11 @@
 
     H = HebrewLanguage()
     @test pos(H, "HNcmpa") isa PoSNoun
-    @test pos(H, "HVqp3ms") isa OSHVerb
+    @test pos(H, "HVqp3ms") isa PoSFiniteVerb
     # "HVqa"
 end
 
-
+  
 # Noun code to test:  HNcmpa
 # Verb code to test: HVqp3ms
 

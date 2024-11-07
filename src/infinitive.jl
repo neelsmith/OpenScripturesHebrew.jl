@@ -3,7 +3,7 @@ struct OSHInfinitive <: OSHMorphologicalForm
     conjugation#::OSHConjugation
 end
 
-function infinitivestate(code::AbstractString)
+function infinitive(code::AbstractString)
     if length(code) < 4
         @error("Invalid code $(code)")
     else

@@ -1,35 +1,7 @@
-#=
-"""True if code string represents a verb (finite or infinitive form).
+
+"""Find Hebrew conjugation object for a character code.
 $(SIGNATURES)
 """
-function isverb(codestring)::Bool
-    #pos(language(codestring), codestring) isa OSHVerb
-end
-
-
-"""True if code string represents a finite verb form.
-$(SIGNATURES)
-"""
-function isfiniteverb(codestring)::Bool
-    #isverb(codestring) && !(isinfinitive(codestring)) && !(isparticiple(codestring))
-end
-
-
-"""True if code string represents an infinitive verb form.
-$(SIGNATURES)
-"""
-function isinfinitive(codestring)::Bool
-    #isverb(codestring) && length(codestring) == 4
-end
-
-
-function isparticiple(codestring)::Bool
-    #isverb(codestring) && length(codestring) == 7 && 
-   # (codestring[4] == 'r' || codestring[4] == 's')
-end
-
-=#
-
 function conjugation(lang::HebrewLanguage, code::Char)
     if code == 'q'
         OSHQal()        
@@ -40,7 +12,7 @@ function conjugation(lang::HebrewLanguage, code::Char)
     elseif code == 'N'
         OSHNiphal()  
     elseif code == 'P'
-        OSHPual()       
+        OSHPual()        
     elseif code == 'H'
         OSHHophal()    
     elseif code == 't'
@@ -72,39 +44,11 @@ function conjugation(lang::HebrewLanguage, codestring::AbstractString)::Union{OS
     else
         conjugation(lang, codesring[3])
     end
-        #=
-    elseif codestring[3] == 'q'
-        OSHQal()        
-    elseif codestring[3] == 'h'
-        OSHHiphil()
-    elseif codestring[3] == 'p'
-        OSHPiel()  
-    elseif codestring[3] == 'N'
-        OSHNiphal()  
-    elseif codestring[3] == 'P'
-        OSHPual()       
-    elseif codestring[3] == 'H'
-        OSHHophal()    
-    elseif codestring[3] == 't'
-        OSHTiphil()  
-    elseif codestring[3] == 'Q'
-        OSHQalPassive()  
-    elseif codestring[3] == 'v'
-        OSHHishtaphel() 
-    elseif codestring[3] == 'f'
-        OSHHithpalpel() 
-    elseif codestring[3] == 'o'
-        OSHPolel()  
-    elseif codestring[3] == 'r'
-        OSHHithpolel()         
-    elseif codestring[3] == 'l'
-        OSHPilpel()                                                                
-    else
-        @error("Unrecognized value for conjugation $(codestring)")
-    end
-    =#
 end
 
+"""Find Hebrew verb type ("tense") for a morphological code.
+$(SIGNATURES)
+"""
 function verbtype(lang::HebrewLanguage, codestring)::Union{OSHVerbType, Nothing}
     if isempty(codestring) || length(codestring) < 4
         @error("Invalid argument for verbtype $(codestring)")
@@ -126,5 +70,8 @@ function verbtype(lang::HebrewLanguage, codestring)::Union{OSHVerbType, Nothing}
         OSHCohortative()                 
 
     else
+        @error("Unrecognized code for verb type: $(codestring[4]) in $(codestring)")
+        nothing
     end
 end
+

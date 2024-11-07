@@ -8,8 +8,13 @@ export compilewordlist
 
 export language, HebrewLanguage, AramaicLanguage
 
-export pos, PoSAdjective, PoSAdverb, PoSConjunction, PoSNoun, PoSPronoun, PoSSuffix, PoSParticle, PoSPreposition
-export PoSFiniteVerb, PoSInfinitive, PoSParticiple
+export parsecode
+
+export pos #, PoSAdjective, PoSAdverb, PoSConjunction, PoSNoun, PoSPronoun, PoSSuffix, PoSParticle, PoSPreposition
+# export PoSFiniteVerb, PoSInfinitive, PoSParticiple
+
+
+#export 
 
 export conjugation, verbtype
 export isverb, isfiniteverb, isinfinitive, isparticiple

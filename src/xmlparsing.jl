@@ -79,5 +79,5 @@ function parseword(pos::OSHPartOfSpeech, code::AbstractString)
 end
 
 function parseword(inf::PoSInfinitive, code::AbstractString)
-    infinitivestate(code)
+    infinitive(code)
 end
