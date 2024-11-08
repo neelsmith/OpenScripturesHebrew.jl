@@ -91,8 +91,8 @@ function compilewords(f)
                             lemmaval = "particle"
                         else
                             if i > length(lemmas)
-                                @warn("at $(refstring) MYSTERY lemma $(mtokens[i]) following $(mtokens[i - 1])")
-                                @warn("CODING:  $(speechpart(codeval))")
+                                @warn("at $(refstring) unspecified lemma for $(mtokens[i]) following $(mtokens[i - 1])")
+                                @warn("coded as:  $(speechpart(codeval))")
                                 lemmaval = "unspecified_lemma"
                             else
                                 lemmaval = lemmas[i]
