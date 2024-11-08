@@ -74,6 +74,7 @@ struct OSHPassive <: OSHVoice end
 # Enumeration of noun states:
 struct OSHAbsolute <: OSHSubstantiveState end
 struct OSHConstruct <: OSHSubstantiveState end
+struct OSHDetermined <: OSHSubstantiveState end
 
 # Enumeration of noun types:
 struct OSHCommonNoun <: OSHNounType end

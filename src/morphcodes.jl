@@ -459,6 +459,8 @@ function substantive_state(ch::Char)::Union{OSHSubstantiveState, Nothing}
         OSHAbsolute()
     elseif ch == 'c'
         OSHConstruct()
+    elseif ch == 'd'
+        OSHDetermined()
 
     else
         @error("Invalid code for substantive state $(ch)")

@@ -20,7 +20,7 @@ function adjective(code::AbstractString)
         thestate = substantive_state(code[6])
         thetype = adjectivetype(code[3])
         if isnothing(thestate) || isnothing(thetype)
-            @error("Invalid noun code $(code)")
+            @error("Invalid adjective code $(code)")
             nothing
         else
             OSHAdjective(

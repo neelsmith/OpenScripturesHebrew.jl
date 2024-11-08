@@ -83,6 +83,9 @@ function tanakh()
     [torah(), prophets(), writings()] |> Iterators.flatten |> collect
 end
 
+function tanach()
+    tanakh()
+end
 
 """Parse file and compile a list of `w` elements keyed by URN.
 $(SIGNATURES)
@@ -210,8 +213,12 @@ function parseword(inf::PoSNoun, code::AbstractString)
     noun(code)
 end
 
-
-
+"""Parse a code for a noun into a morphological object.
+$(SIGNATURES)
+F"""
+function parseword(inf::PoSPronoun, code::AbstractString)
+    pronoun(code)
+end
 
 """Parse a code for a noun into a morphological object.
 $(SIGNATURES)
