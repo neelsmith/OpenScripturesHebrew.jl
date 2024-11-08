@@ -42,6 +42,11 @@ website:
     - title: "Tutorials"
       contents: 
         - tutorials/index.qmd
+    - title: "Reference"
+      contents: 
+        - reference/index.qmd
+        - reference/apis/index.qmd
+        - reference/sources.qmd                
         
 
     - title: "Home"
