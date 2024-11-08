@@ -146,9 +146,12 @@ function person(code::Char)::Union{OSHPerson, Nothing}
         OSHFirstPerson()
     elseif code == '2'
         OSHSecondPerson()
-
     elseif code == '3'
         OSHThirdPerson()
+    elseif code == 'x'
+        nothing
+    #elseif code == 'x'
+    #    nothing
     else
         @error("Invalid value for person: $(code)")
         nothing
@@ -169,6 +172,14 @@ function person(speechpart::OSHPartOfSpeech, codestring::AbstractString)::Union{
     @error("No implementation of person function for $(typeof(speechpart))")
     nothing
 end
+
+"""Find OSHPerson for a pronoun code.
+$(SIGNATURES)
+"""
+function person(finite::PoSPronoun, codestring::AbstractString)::Union{OSHPerson, Nothing}
+    person(codestring[4])
+end
+
 
 """Find OSHPerson for a finite verb code.
 $(SIGNATURES)
@@ -240,6 +251,14 @@ $(SIGNATURES)
 function number(finite::PoSNoun, codestring::AbstractString)::Union{OSHNumber, Nothing}
     number(codestring[5])
 end
+
+"""Find OSHNumber for a pronoun.
+$(SIGNATURES)
+"""
+function number(finite::PoSPronoun, codestring::AbstractString)::Union{OSHNumber, Nothing}
+    number(codestring[6])
+end
+
 
 """Find OSHNumber for an adjective.
 $(SIGNATURES)
@@ -317,6 +336,13 @@ $(SIGNATURES)
 """
 function gender(finite::PoSNoun, codestring::AbstractString)::Union{OSHGender, Nothing}
     gender(codestring[4])
+end
+
+"""Find OSHGender for a noun code.
+$(SIGNATURES)
+"""
+function gender(finite::PoSPronoun, codestring::AbstractString)::Union{OSHGender, Nothing}
+    gender(codestring[5])
 end
 
 
@@ -399,6 +425,25 @@ function nountype(ch::Char)::Union{OSHNounType, Nothing}
         OSHCommonNoun()
     elseif ch == 'p'
         OSHProperName()
+    else
+        @error("Invalid code for nount type $(ch)")
+        nothing
+    end
+end
+
+## Pronoun types
+
+function pronountype(ch::Char)::Union{OSHPronounType, Nothing}
+    if ch == 'd'
+        OSHDemonstrative()
+    elseif ch == 'f'
+        OSHIndefinite()
+    elseif ch == 'i'
+        OSHInterrogative()
+    elseif ch == 'p'
+        OSHPersonal()        
+    elseif ch == 'r'
+        OSHRelative()         
     else
         @error("Invalid code for nount type $(ch)")
         nothing

@@ -85,3 +85,10 @@ struct OSHSimpleAdjective <: OSHAdjectiveType end
 struct OSHCardinalNumber <: OSHAdjectiveType end
 struct OSHOrdinalNumber <: OSHAdjectiveType end
 struct OSHGentilicAdjective <: OSHAdjectiveType end
+
+# Enumeration of pronoun types:
+struct OSHDemonstrative <: OSHPronounType end
+struct OSHIndefinite <: OSHPronounType end
+struct OSHInterrogative <: OSHPronounType end
+struct OSHPersonal <: OSHPronounType end
+struct OSHRelative <: OSHPronounType end

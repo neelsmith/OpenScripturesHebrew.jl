@@ -70,6 +70,7 @@ include("nouns.jl")
 include("suffixes.jl")
 include("uninflected.jl")
 include("adjectives.jl")
+include("pronouns.jl")
 
 include("morphcodes.jl")
 

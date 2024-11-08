@@ -17,3 +17,4 @@ abstract type OSHSubstantiveState end
 
 abstract type OSHNounType end
 abstract type OSHAdjectiveType end
+abstract type  OSHPronounType end

@@ -59,6 +59,6 @@ end
 """Find the noun type for an adjective form.
 $(SIGNATURES)
 """
-function nountype(a::OSHAdjective)
+function adjectivetype(a::OSHAdjective)
     a.type
 end
