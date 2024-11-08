@@ -4,6 +4,11 @@ engine: julia
 ---
 
 
+- options for [downloading data](./downloads/)
+- using [passage references](./passages/)
+- using morphological data
+- using lemmatization
+
 ## Quickest start
 
 ```{julia}
@@ -13,53 +18,8 @@ using OpenScripturesHebrew
 words = tanakh()
 ```
 
+That's a lot of words!
+
 ```{julia}
 length(words)
-```
-
-Alternatively, download a named section of the Bible (torah, writings, prophets), or a single book.
-
-
-```{julia}
-#| warning: false
-#| output: false
-torahwords = torah()
-```
-
-```{julia}
-length(torahwords)
-```
-
-```{julia}
-#| warning: false
-#| output: false
-genesiswords = compilewords_remote("Gen")
-```
-
-```{julia}
-length(genesiswords)
-```
-
-
-## Find words by reference
-
-Each tuple includes a `urn` property with the full string value of a CTS URN that looks like this `urn:cts:compnov:bible.genesis.osh:1.1` for *Genesis* 1.1. Use normal Julia filtering to find all words in *Genesis* 1.1:
-
-```{julia}
-filter(wd -> wd.urn == "urn:cts:compnov:bible.genesis.osh:1.1", genesiswords)
-```
-
-
-Or use substring matching to find words by passage reference:
-
-
-```{julia}
-filter(wd -> endswith(wd.urn,":1.1"), genesiswords)
-```
-
-(Note that this could be messy if you have multiple books!)
-
-
-```{julia}
-filter(wd -> endswith(wd.urn,":1.1"), torahwords)
 ```

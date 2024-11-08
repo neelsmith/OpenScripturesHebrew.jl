@@ -42,6 +42,9 @@ website:
     - title: "Tutorials"
       contents: 
         - tutorials/index.qmd
+        - tutorials/downloads/index.qmd
+        - tutorials/passages/index.qmd
+
     - title: "Reference"
       contents: 
         - reference/index.qmd
