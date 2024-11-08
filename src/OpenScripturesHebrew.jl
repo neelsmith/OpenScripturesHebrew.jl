@@ -68,6 +68,7 @@ include("infinitive.jl")
 include("participle.jl")
 include("nouns.jl")
 include("suffixes.jl")
+include("uninflected.jl")
 
 
 include("morphcodes.jl")

@@ -201,3 +201,52 @@ F"""
 function parseword(inf::PoSSuffix, code::AbstractString)
     suffix(code)
 end
+
+
+"""Parse a code for a noun into a morphological object.
+$(SIGNATURES)
+F"""
+function parseword(inf::PoSNoun, code::AbstractString)
+    noun(code)
+end
+
+
+"""Parse a code for a conjunction into a morphological object.
+$(SIGNATURES)
+"""
+function parseword(inf::PoSConjunction, code::AbstractString)
+    conjunction(code)
+end
+
+
+
+"""Parse a code for a preposition into a morphological object.
+$(SIGNATURES)
+"""
+function parseword(inf::PoSPreposition, code::AbstractString)
+    preposition(code)
+end
+
+
+"""Parse a code for an adverb into a morphological object.
+$(SIGNATURES)
+"""
+function parseword(inf::PoSAdverb, code::AbstractString)
+    adverb(code)
+end
+
+
+"""Parse a code for a participle into a morphological object.
+$(SIGNATURES)
+"""
+function parseword(inf::PoSParticiple, code::AbstractString)
+    participle(code)
+end
+
+
+"""Parse a code for a particle into a morphological object.
+$(SIGNATURES)
+"""
+function parseword(inf::PoSParticle, code::AbstractString)
+    particle(code)
+end

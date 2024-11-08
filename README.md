@@ -1,6 +1,6 @@
 # OpenScripturesHebrew.jl
 
-Julia package for working with data from the Open Scriptures Hebrew Bible project
+A Julia package for working with morphological data from the Open Scriptures Hebrew Bible project.
 
 
 ## Testing
