@@ -29,7 +29,7 @@ function lemma(n::EzXML.Node)
     attributevalue(n,"lemma")
 end
 
-"""Download book from OSH github respeechpartitory and compile word list.
+"""Download book from OSH github repository and compile word list.
 $(SIGNATURES)
 """
 function compilewords_remote(bookname::AbstractString)
@@ -46,12 +46,18 @@ function compilewords_remote(bookname::AbstractString)
     end
 end
 
-
+"""Download books of the Torah from the OSH github repository and compile word list.
+$(SIGNATURES)
+"""
 function torah()
     books = ["Gen", "Exod", "Lev", "Num", "Deut"]
     map(book -> compilewords_remote(book), books) |> Iterators.flatten |> collect
 end
 
+
+"""Download books of the Prophets from the OSH github repository and compile word list.
+$(SIGNATURES)
+"""
 function prophets()
     books = ["Josh", "Judg", "2Sam", "1Kgs", "2Kgs",
         "Isa", "Jer", "Ezek", 
@@ -60,11 +66,19 @@ function prophets()
     map(book -> compilewords_remote(book), books) |> Iterators.flatten |> collect
 end
 
+
+"""Download books of the Writings from the OSH github repository and compile word list.
+$(SIGNATURES)
+"""
 function writings()
     books = ["Ps", "Prov", "Job", "Song","Ruth","Lam","Eccl", "Esth","Dan","Ezra", "Neh", "2Chr"]
     map(book -> compilewords_remote(book), books) |> Iterators.flatten |> collect
 end
 
+
+"""Download the Hebrew Bible, book by book, from the OSH github repository and compile word list.
+$(SIGNATURES)
+"""
 function tanakh()
     [torah(), prophets(), writings()] |> Iterators.flatten |> collect
 end
@@ -138,6 +152,12 @@ function parseword(n::EzXML.Node)
     else
         parseword(code)
     end
+end
+
+
+
+function parsetuple(tupl)
+    parsecode(tupl.code)
 end
 
 """Parse a morphological code into a mnorphological object.

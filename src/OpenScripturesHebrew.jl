@@ -21,8 +21,7 @@ export speechpart, isverb
 export PoSAdjective, PoSConjunction, PoSAdverb, PoSNoun, PoSPronoun, PoSParticle, PoSPreposition, PoSSuffix
 export PoSParticiple,PoSInfinitive, PoSFiniteVerb
 
-
-export parsecode, parseword
+export parsecode, parsetuple
 
 export OSHInfinitive, infinitive
 export OSHFiniteVerb, finiteverb

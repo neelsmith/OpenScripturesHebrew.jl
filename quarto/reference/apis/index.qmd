@@ -1,0 +1,75 @@
+---
+title: API documentation
+engine: julia
+---
+
+
+
+
+## Downloading data
+
+
+`tanakh`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+using OpenScripturesHebrew
+@doc tanakh
+```
+:::
+
+
+`torah`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+@doc torah
+```
+:::
+
+
+`prophets`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+@doc prophets
+```
+:::
+
+`writings`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+@doc writings
+```
+:::
+
+
+`compilewords_remote`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+@doc compilewords_remote
+```
+:::
+
+
+`compilewords_remote`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+@doc compilewords
+```
+:::

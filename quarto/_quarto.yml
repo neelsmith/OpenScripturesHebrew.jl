@@ -21,7 +21,9 @@ website:
       - text: "Home"
         file: index.qmd
       - text: "Tutorials"
-        file: tutorials/index.qmd          
+        file: tutorials/index.qmd     
+      - text: "Reference"
+        file: reference/index.qmd               
      
             
     right:   

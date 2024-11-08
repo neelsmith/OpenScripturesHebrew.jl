@@ -1,0 +1,11 @@
+---
+title: The data sources
+engine: julia
+---
+
+
+
+OSHB publishes word-level morphological annotations of the entire Hebrew Bible in [this github repository](https://github.com/openscriptures/morphhb).
+
+- the annotations are formatted in XML validating against the [OSIS schema](http://crosswire.org/osis/)
+- the values for OSHB's morphological codes are documented on [this web page](https://hb.openscriptures.org/parsing/HebrewMorphologyCodes.html)

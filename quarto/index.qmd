@@ -1,9 +1,12 @@
 ---
-title: Placeholder file for docs
+title: OpenScripturesHebrew.jl
 engine: julia
 ---
 
-# Open Scriptures Hebrew Bible
 
-All about it.
+`OpenScripturesHebrew.jl` is a Julia package for working with the morphological data of the [Open Scriptures Hebrew Bible](https://hb.openscriptures.org) project (OSHB). 
+
+`OpenScripturesHebrew.jl` parses the OSHB data into easily manipulated Julia tuples, and provides a Julia data model for the OSHB morphological data.
+
+
 

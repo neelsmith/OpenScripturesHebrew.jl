@@ -3,4 +3,11 @@ title: Tutorials
 engine: julia
 ---
 
-They'll go here.
+
+## Quickest start
+
+```{julia}
+#| warning: false
+using OpenScripturesHebrew
+words = tanakh()
+```
