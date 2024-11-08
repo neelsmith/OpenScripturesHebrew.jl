@@ -73,3 +73,5 @@ using OpenScripturesHebrew
 @doc compilewords
 ```
 :::
+
+## Morphological codes
