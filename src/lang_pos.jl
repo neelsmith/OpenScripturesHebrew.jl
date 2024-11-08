@@ -69,3 +69,14 @@ function speechpart(lang::HebrewLanguage, codestring)::Union{OSHPartOfSpeech, No
         nothing
     end
 end
+
+
+"""True if a morphological code represents a verbal form
+(finite, infinitive or participle).
+$(SIGNATURES)
+"""
+function isverb(codestring::AbstractString)::Bool
+    speechpart(codestring) isa PoSFiniteVerb ||
+    speechpart(codestring) isa PoSInfinitive  ||
+    speechpart(codestring) isa PoSParticiple 
+end

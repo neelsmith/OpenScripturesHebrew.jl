@@ -52,6 +52,22 @@ function torah()
     map(book -> compilewords_remote(book), books) |> Iterators.flatten |> collect
 end
 
+function prophets()
+    books = ["Josh", "Judg", "2Sam", "1Kgs", "2Kgs",
+        "Isa", "Jer", "Ezek", 
+        "Hos", "Joel", "Amos", "Obad", "Jonah", "Mic", "Nah", "Hab", "Zeph", "Hag", "Zech", "Mal"
+    ]
+    map(book -> compilewords_remote(book), books) |> Iterators.flatten |> collect
+end
+
+function writings()
+    books = ["Ps", "Prov", "Job", "Song","Ruth","Lam","Eccl", "Esth","Dan","Ezra", "Neh", "2Chr"]
+    map(book -> compilewords_remote(book), books) |> Iterators.flatten |> collect
+end
+
+function tanakh()
+    [torah(), prophets(), writings()] |> Iterators.flatten |> collect
+end
 
 
 """Parse file and compile a list of `w` elements keyed by URN.
@@ -72,8 +88,10 @@ function compilewords(f)
             # URN for verse:
             urn = "urn:cts:compnov:bible.$(bookids[bookid]).osh:$(chaptid).$(ref)"
 
+            otkn_count = 0
             for wrd in  findall("./osis:w", verse, [ "osis" => OSIS])
                 otoken = nodecontent(wrd)
+                otkn_count = otkn_count + 1
 
                 codes = split(morphcode(wrd), "/")
                 lemmas = split(lemma(wrd), "/")
@@ -99,7 +117,7 @@ function compilewords(f)
                             end
                         end
                     end
-                    grouping = (urn = urn, code = codeval,  mtoken = mtoken, otoken = otoken, lemma = lemmaval)
+                    grouping = (urn = urn, code = codeval,  mtoken = mtoken, otoken = otoken, otoken_num = otkn_count, lemma = lemmaval)
                     push!(wordlist, grouping)
                 
                end

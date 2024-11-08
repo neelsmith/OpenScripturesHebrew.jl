@@ -39,7 +39,5 @@ bookids = Dict(
         "Hag" => "haggai",
         "Zech" => "zechariah",
         "Mal" => "malachi"
-
-
     ]
 )   

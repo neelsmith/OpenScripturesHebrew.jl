@@ -20,6 +20,25 @@ function finiteverb(code::AbstractString)
     end
 end
 
+#=
+
+
+"""Override Base.show for a gerundive form.
+$(SIGNATURES)
+"""
+function show(io::IO, g::LMFGerundive)
+    print(io, label(g))
+end
+
+"""Override Base.== for a gerundive form.
+$(SIGNATURES)
+"""
+function ==(g1::LMFGerundive, g2::LMFGerundive)
+    lmpGender(g1)  == lmpGender(g2) &&
+    lmpCase(g1)  == lmpCase(g2) &&
+    lmpNumber(g1)  == lmpNumber(g2) 
+end
+=#
 """Find conjugation for a verb form.
 $(SIGNATURES)
 """

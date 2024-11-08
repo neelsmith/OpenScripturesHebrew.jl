@@ -1,4 +1,10 @@
 module OpenScripturesHebrew
+
+
+import Base: show
+import Base: ==
+
+
 using Downloads
 using EzXML
 
@@ -8,10 +14,14 @@ using Documenter, DocStringExtensions
 
 export attributevalue
 export compilewords, compilewords_remote
-export torah
+export torah, prophets, writings, tanakh
 
 export language, HebrewLanguage, AramaicLanguage
-export speechpart
+export speechpart, isverb
+export PoSAdjective, PoSConjunction, PoSAdverb, PoSNoun, PoSPronoun, PoSParticle, PoSPreposition, PoSSuffix
+export PoSParticiple,PoSInfinitive, PoSFiniteVerb
+
+
 export parsecode, parseword
 
 export OSHInfinitive, infinitive
