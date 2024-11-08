@@ -9,4 +9,5 @@ engine: julia
 `OpenScripturesHebrew.jl` parses the OSHB data into easily manipulated Julia tuples, and provides a Julia data model for the OSHB morphological data.
 
 
-
+- See a [tutorial](./tutorials/) to get started
+- See [reference documentation](./reference/) (APIs, data sources)
