@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 9099ef36-00a3-42da-b8e8-f6dfd1ec720f
+      url: 'https://neelsmith.quarto.pub/openscriptureshebrew'
