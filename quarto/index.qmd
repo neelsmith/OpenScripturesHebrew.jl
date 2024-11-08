@@ -11,3 +11,18 @@ engine: julia
 
 - See a [tutorial](./tutorials/) to get started
 - See [reference documentation](./reference/) (APIs, data sources)
+
+
+## Status
+
+The package is not yet complete and is not yet registered with the central Julia registry.
+
+In its current state, it already provides some useful functionality, such as parsing OSHB codes for all verb forms (finite forms, infinitives, participles), recognizing the relation of morphological tokens that may be written as a single orthographic token, and relating tokens to canonical citation using CTS URNs.
+
+To use the package in its current state, you can directly add it to your Julia environment from this github repository: [https://github.com/neelsmith/OpenScripturesHebrew.jl](https://github.com/neelsmith/OpenScripturesHebrew.jl), e.g.:
+
+>
+>```
+>using Pkg
+>Pkg.add(url = "https://github.com/neelsmith/OpenScripturesHebrew.jl")
+>```
