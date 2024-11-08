@@ -80,3 +80,8 @@ struct OSHCommonNoun <: OSHNounType end
 struct OSHProperName <: OSHNounType end
 struct OSHGentilic <: OSHNounType end
 
+# Enumeration of adjective types:
+struct OSHSimpleAdjective <: OSHAdjectiveType end
+struct OSHCardinalNumber <: OSHAdjectiveType end
+struct OSHOrdinalNumber <: OSHAdjectiveType end
+struct OSHGentilicAdjective <: OSHAdjectiveType end

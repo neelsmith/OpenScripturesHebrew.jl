@@ -16,3 +16,4 @@ abstract type OSHVoice end
 abstract type OSHSubstantiveState end
 
 abstract type OSHNounType end
+abstract type OSHAdjectiveType end

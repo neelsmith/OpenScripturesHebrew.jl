@@ -211,6 +211,16 @@ function parseword(inf::PoSNoun, code::AbstractString)
 end
 
 
+
+
+"""Parse a code for a noun into a morphological object.
+$(SIGNATURES)
+F"""
+function parseword(inf::PoSAdjective, code::AbstractString)
+    adjective(code)
+end
+
+
 """Parse a code for a conjunction into a morphological object.
 $(SIGNATURES)
 """

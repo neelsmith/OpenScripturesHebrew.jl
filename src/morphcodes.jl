@@ -241,6 +241,14 @@ function number(finite::PoSNoun, codestring::AbstractString)::Union{OSHNumber, N
     number(codestring[5])
 end
 
+"""Find OSHNumber for an adjective.
+$(SIGNATURES)
+"""
+function number(finite::PoSAdjective, codestring::AbstractString)::Union{OSHNumber, Nothing}
+    number(codestring[5])
+end
+
+
 
 """Find OSHNumber for a suffixed object.
 $(SIGNATURES)
@@ -310,6 +318,15 @@ $(SIGNATURES)
 function gender(finite::PoSNoun, codestring::AbstractString)::Union{OSHGender, Nothing}
     gender(codestring[4])
 end
+
+
+"""Find OSHGender for an adjective code.
+$(SIGNATURES)
+"""
+function gender(finite::PoSAdjective, codestring::AbstractString)::Union{OSHGender, Nothing}
+    gender(codestring[4])
+end
+
 
 
 """Find OSHGender for a suffixed object.
@@ -400,6 +417,25 @@ function substantive_state(ch::Char)::Union{OSHSubstantiveState, Nothing}
 
     else
         @error("Invalid code for substantive state $(ch)")
+        nothing
+    end
+end
+
+
+
+# Adjective type
+
+function adjectivetype(ch::Char)::Union{OSHAdjectiveType, Nothing}
+    if ch == 'g'
+        OSHGentilicAdjective()
+    elseif ch == 'a'
+        OSHSimpleAdjective()
+    elseif ch == 'c'
+        OSHCardinalNumber()
+    elseif ch == 'o'
+        OSHOrdinalNumber()
+    else
+        @error("Invalid code for adjective type $(ch)")
         nothing
     end
 end
