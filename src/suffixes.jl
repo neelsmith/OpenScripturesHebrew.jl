@@ -1,13 +1,18 @@
 struct OSHSuffix <: OSHMorphologicalForm
-    person::OSHPerson
-    number::OSHNumber
-    gender::OSHGender
+    person::Union{OSHPerson, Nothing}
+    number::Union{OSHNumber, Nothing}
+    gender::Union{OSHGender, Nothing}
 end
 
 function suffix(code::AbstractString)
-    OSHSuffix(
-        person(code),
-        number(code),
-        gender(code)
-    )
+
+    if length(code) == 3
+        OSHSuffix(nothing, nothing, nothing)
+    else
+        OSHSuffix(
+            person(code),
+            number(code),
+            gender(code)
+        )
+    end
 end

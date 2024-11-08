@@ -20,7 +20,12 @@ function infinitive(code::AbstractString)
             stateval = OSHConstruct()
         end
     end
-    OSHInfinitive(stateval, conj)
+    if isnothing(stateval) || isnothing(conj)
+        @warn("Invalid code for constructing infinitive: $(code).")
+        nothing
+    else
+        OSHInfinitive(stateval, conj)
+    end
 
 end
 

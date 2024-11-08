@@ -15,8 +15,16 @@ function finiteverb(code::AbstractString)
     if length(code) < 7
         @error("Invalid code for finite verb: $(code)")
         nothing
+
     else
-        OSHFiniteVerb(conjugation(code), verbtype(code), person(code), number(code), gender(code))    
+        conj = conjugation(code)
+        if isnothing(conj) 
+            @warn("Invalid code for finite verb $(code)")
+            nothing 
+            
+        else
+           OSHFiniteVerb(conj, verbtype(code), person(code), number(code), gender(code))
+        end
     end
 end
 

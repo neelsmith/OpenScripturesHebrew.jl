@@ -24,13 +24,18 @@ function participle(code)
         @error("Invalid code for substantive state of participle: $(code)")
         nothing
     else
-        OSHParticiple(
-            conjugation(code),
+        conj = conjugation(code)
+        if isnothing(conj)
+            @warn("Invalid participle code $(code).")
+        else
+            OSHParticiple(
+            conj,
             voice(code),
             gender(code),
             number(code),
             thestate
-        )
+            )
+        end
     end
 end
 

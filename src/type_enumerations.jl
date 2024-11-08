@@ -31,6 +31,17 @@ struct OSHHithpalpel <: OSHConjugation end
 struct OSHPolel <: OSHConjugation end
 struct OSHHithpolel <: OSHConjugation end
 struct OSHPilpel <: OSHConjugation end
+struct OSHPalel <: OSHConjugation end
+struct OSHPoel <: OSHConjugation end
+struct OSHHothpaal <: OSHConjugation end
+struct OSHNithpael <: OSHConjugation end
+struct OSHPoal <: OSHConjugation end
+struct OSHPolpal <: OSHConjugation end
+struct OSHPulal <: OSHConjugation end
+struct OSHPolal <: OSHConjugation end
+struct OSHHithpoel <: OSHConjugation end
+struct OSHPealal <: OSHConjugation end
+struct OSHPilel <: OSHConjugation end
 
 # Enumeration of verbtypes:
 struct OSHPerfect <: OSHVerbType end

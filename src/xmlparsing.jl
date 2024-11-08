@@ -166,7 +166,7 @@ $(SIGNATURES)
 function parsecode(code::AbstractString)
     lang = language(code)
     wordspeechpart = speechpart(lang, code)
-    parseword(wordspeechpart, code)
+    isnothing(wordspeechpart) ? nothing : parseword(wordspeechpart, code)
 end
 
 

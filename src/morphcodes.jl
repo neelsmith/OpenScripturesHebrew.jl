@@ -28,9 +28,37 @@ function conjugation(lang::HebrewLanguage, code::Char)
     elseif code == 'r'
         OSHHithpolel()         
     elseif code == 'l'
-        OSHPilpel()                                                                
+        OSHPilpel()        
+    elseif code == 'k'
+        OSHPalel()  
+    elseif code == 'm'
+        OSHPoel()
+    elseif code == 'u'
+        OSHHothpaal()
+    elseif code == 'D'
+        OSHNithpael()
+    elseif code == 'M'
+        OSHPoal()
+    elseif code == 'L'
+        OSHPolpal()
+    elseif code == 'K'
+        OSHPulal()
+    elseif code == 'O'
+        OSHPolal()
+    elseif code == 'c'
+        OSHTiphil()
+    elseif code == 'z'
+        OSHHithpoel()
+    elseif code == 'j'
+        OSHPealal()
+    elseif code == 'i'
+        OSHPilel()
+
+    elseif code == 'e' || code == 'a'
+        @warn("Data error in morph. code $(code). (Invalid value for conjugation.)")
+        nothing
     else
-        @error("Unrecognized value for conjugation $(codestring)")
+        @error("Unrecognized value for conjugation $(code)")
     end
 end
 
@@ -353,7 +381,7 @@ function nountype(ch::Char)::Union{OSHNounType, Nothing}
     elseif ch == 'c'
         OSHCommonNoun()
     elseif ch == 'p'
-        OSHProperName
+        OSHProperName()
     else
         @error("Invalid code for nount type $(ch)")
         nothing

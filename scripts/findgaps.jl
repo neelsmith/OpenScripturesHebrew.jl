@@ -1,6 +1,7 @@
 using OpenScripturesHebrew
 
-words = compilewords_remote("Gen")
+#words = compilewords_remote("Gen")
+words = tanakh()
 
 
 for (i, w) in enumerate(words)
