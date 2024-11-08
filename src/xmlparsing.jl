@@ -78,14 +78,27 @@ function compilewords(f)
                 codes = split(morphcode(wrd), "/")
                 lemmas = split(lemma(wrd), "/")
                 mtokens = split(otoken, "/")
-                #if ! (length(codes) == length(lemmas) == length(mtokens))
-                    #@warn("Unequal lists: $(lemmas), $(codes),  $(mtokens)")
-                #end
+      
                 for (i, mtoken) in enumerate(mtokens)
                     codeval = i > 1 ? "H" * codes[i] : codes[i]
-                    lemmaval =  speechpart(codeval) isa PoSSuffix ? "suffixed_object" : lemmas[i]
-                        #@info("Suffix: $(length(lemmas)) lemmas / $(length(mtokens)) tokens")
-                    #end
+
+                    lemmaval = "non_hebrew"
+                    # We're only good for hebrew right now
+                    if language(codeval) isa HebrewLanguage
+                        if speechpart(codeval) isa OpenScripturesHebrew.PoSSuffix
+                            lemmaval = "suffixed_object"      
+                        elseif speechpart(codeval) isa OpenScripturesHebrew.PoSParticle
+                            lemmaval = "particle"
+                        else
+                            if i > length(lemmas)
+                                @warn("at $(refstring) MYSTERY lemma $(mtokens[i]) following $(mtokens[i - 1])")
+                                @warn("CODING:  $(speechpart(codeval))")
+                                lemmaval = "unspecified_lemma"
+                            else
+                                lemmaval = lemmas[i]
+                            end
+                        end
+                    end
                     grouping = (urn = urn, code = codeval,  mtoken = mtoken, otoken = otoken, lemma = lemmaval)
                     push!(wordlist, grouping)
                 
