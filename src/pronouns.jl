@@ -7,7 +7,14 @@ struct OSHPronoun <: OSHMorphologicalForm
 end
 
 function show(io::IO, pron::OSHPronoun)
-    print(io, join(["pronoun ($(pron.type)):", pron.person, pron.gender, pron.number], " "))
+
+    p = isnothing(pron.person) ? "" : pron.person
+    g = isnothing(pron.gender) ? "" : pron.gender
+    num = isnothing(pron.number) ? "" : pron.number
+    
+    print(io, join(["pronoun ($(pron.type)):", p, g, num], " "))
+
+
 end
 
 """Construct a pronoun from morphological code.

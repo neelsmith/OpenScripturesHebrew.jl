@@ -267,3 +267,7 @@ $(SIGNATURES)
 function parseword(inf::PoSParticle, code::AbstractString)
     particle(code)
 end
+
+function parseword(tpl::NamedTuple)
+    parsecode(tpl.code)
+end

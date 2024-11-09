@@ -9,17 +9,13 @@ engine: julia
 - using morphological data
 - using lemmatization
 
-## Quickest start
+> ## MOVE INTO TUTORIAL
+Select only words identified as Hebrew (i.e., not Aramaic):
+
 
 ```{julia}
 #| warning: false
 #| output: false
-using OpenScripturesHebrew
-words = tanakh()
+# hwords = filter(w -> ishebrew(w), words)
 ```
 
-That's a lot of words!
-
-```{julia}
-length(words)
-```

@@ -7,7 +7,11 @@ struct OSHNoun <: OSHMorphologicalForm
 end
 
 function show(io::IO, n::OSHNoun)
-    print(io, join(["noun ($(n.type)):", n.gender, n.number, n.state, "state"], " "))
+
+    g = isnothing(n.gender) ? "" : n.gender
+    num = isnothing(n.number) ? "" : n.number
+    st = isnothing(n.state) ? "" : string(n.state, " state")
+    print(io, join(["noun ($(n.type)):", g, num, st], " "))
 end
 
 

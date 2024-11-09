@@ -66,6 +66,8 @@ export resolvebdb
 
 
 export ishebrew
+export oshverse
+export parseword
 
 include("bookids.jl")
 

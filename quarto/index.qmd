@@ -9,17 +9,45 @@ engine: julia
 `OpenScripturesHebrew.jl` parses the OSHB data into easily manipulated Julia tuples, and provides a Julia data model for the OSHB morphological data.
 
 
-- See a [tutorial](./tutorials/) to get started
+## Quickest start
+
+Get OSH annotations on all words in the Hebrew Bible:
+```{julia}
+#| warning: false
+#| output: false
+using OpenScripturesHebrew
+words = tanakh()
+```
+
+That's a lot of words!
+
+```{julia}
+length(words)
+```
+
+They're a bunch of tuples
+```{julia}
+versewords = oshverse("Gen", "1.1", words)
+```
+
+pull out the form and the morphology
+
+
+```{julia}
+map(versewords) do w
+    string(w.mtoken, " = ", parseword(w))
+end
+```
+
+## More information
+
+- See some [btutorials](./tutorials/) to get started
 - See [reference documentation](./reference/) (APIs, data sources)
 
 
 ## Status
 
-The package is not yet complete and is not yet registered with the central Julia registry.
-
-In its current state, it already provides some useful functionality, such as parsing OSHB codes for all verb forms (finite forms, infinitives, participles), recognizing the relation of morphological tokens that may be written as a single orthographic token, and relating tokens to canonical citation using CTS URNs.
-
-To use the package in its current state, you can directly add it to your Julia environment from this github repository: [https://github.com/neelsmith/OpenScripturesHebrew.jl](https://github.com/neelsmith/OpenScripturesHebrew.jl), e.g.:
+The package is not yet registered with the central Julia registry. You can directly add it to your Julia environment from its github repository [https://github.com/neelsmith/OpenScripturesHebrew.jl](https://github.com/neelsmith/OpenScripturesHebrew.jl). For example:
 
 >
 >```
