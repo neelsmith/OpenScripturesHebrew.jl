@@ -48,12 +48,18 @@ function addmorph(sefariaentries)
         
         
         oshmatches = filter(oshwords) do w
-            w.urn == "urn:cts:compnov:bible.genesis.osh:" * psg
+            w.urn == "urn:cts:compnov:bible.$(book).osh:" * psg
         end    
         #@info("For $(verb.form) with id $(verb.bdbid) in $(psg), $(length(oshmatches)) candidate OSH tokens.")
-        reconciled = reconcile_ids(verb, oshmatches)
+        #try 
+            reconciled = reconcile_ids(verb, oshmatches)
+            push!(results, (urn = verb.urn, form = verb.form, lemma = verb.lemma, bdbid = verb.bdbid, morphology = reconciled))
+        #catch e
+            
+        #end
+        
         #@info("Matches: $(reconciled) $(typeof(reconciled))")
-        push!(results, (urn = verb.urn, form = verb.form, lemma = verb.lemma, bdbid = verb.bdbid, morphology = reconciled))
+        
         
     end
     results
@@ -77,3 +83,23 @@ faillabels = map(fails) do v
     string(v.form, ", ", v.urn, ": ", length(v.morphology), " forms.")
 end
 println(join(faillabels,"\n"))
+
+
+
+function reconcile(book, psg; sefaria = sefariatuples, osh = oshwords)
+    sefariaurn = "urn:cts:compnov:bible.$(book).masoretic_tokens:$(psg)."
+    oshurn = "urn:cts:compnov:bible.$(book).osh:$(psg)"
+    sefaria = filter(tup -> startswith(tup.urn, sefariaurn), sefariatuples)
+    osh = filter(tup -> tup.urn == oshurn, oshwords)
+    #output = []
+    output = map(sefaria) do verb
+        reconciled =  (urn = verb.urn, form = verb.form, lemma = verb.lemma, bdbid = verb.bdbid, morphology = reconcile_ids(verb, osh))
+        @info(typeof(reconciled))
+        #push!(output,reconciled)
+        reconciled
+        
+    end
+    output |> Iterators.flatten |> collect
+end
+
+out = reconcile("genesis", "1.1")

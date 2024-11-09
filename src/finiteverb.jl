@@ -1,5 +1,5 @@
 """A finitive form belongs to a conjugation, and has a verb type, person, number and gender."""
-struct OSHFiniteVerb <: OSHVerb
+struct OSHFiniteVerb <: OSHMorphologicalForm
     conjugation::OSHConjugation
     verbtype::OSHVerbType
     person::OSHPerson

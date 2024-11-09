@@ -1,7 +1,7 @@
 """Participles belong to a conjugation, and have
 voice, gender, number and substantive state.
 """
-struct OSHParticiple <: OSHVerb
+struct OSHParticiple <: OSHMorphologicalForm
     conjugation::OSHConjugation
     voice::OSHVoice
     gender::OSHGender

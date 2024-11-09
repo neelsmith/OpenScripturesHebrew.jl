@@ -52,6 +52,7 @@ export OSHGentilic, OSHCommonNoun, OSHProperName
 export voice
 export OSHActive, OSHPassive
 
+export OSHMorphologicalForm
 export resolvebdb
 
 include("bookids.jl")
