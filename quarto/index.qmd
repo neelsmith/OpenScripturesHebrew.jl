@@ -4,13 +4,12 @@ engine: julia
 ---
 
 
-`OpenScripturesHebrew.jl` is a Julia package for working with the morphological data of the [Open Scriptures Hebrew Bible](https://hb.openscriptures.org) project (OSHB). 
-
-`OpenScripturesHebrew.jl` parses the OSHB data into easily manipulated Julia tuples, and provides a Julia data model for the OSHB morphological data.
+`OpenScripturesHebrew.jl` is a Julia package for working with the morphological data of the [Open Scriptures Hebrew Bible](https://hb.openscriptures.org) project (OSHB). `OpenScripturesHebrew.jl` parses the OSHB data into easily manipulated Julia tuples, and provides a Julia data model for the OSHB morphological data.
 
 
 ## Quickest start
 
+### Download data
 Get OSH annotations on all words in the Hebrew Bible:
 ```{julia}
 #| warning: false
@@ -18,19 +17,52 @@ Get OSH annotations on all words in the Hebrew Bible:
 using OpenScripturesHebrew
 words = tanakh()
 ```
-
-That's a lot of words!
-
 ```{julia}
 length(words)
 ```
 
-They're a bunch of tuples
+That's a lot of words!
+
+
+### What's in a word
+
+Each word is reprsented by a named tuple.
+
+```{julia}
+words[1]
+```
+
+In the tuple, the morphologically analyzed token is named `mtoken`:
+
+```{julia}
+words[1].mtoken
+```
+
+### Morphological analysis
+
+The morphological analysis for the token is represented by a code string, but you can use the `parseword` function to create a `OSHMorphologicalForm`.
+
+```{julia}
+words[1].code
+```
+
+```{julia}
+parseword(words[1])
+```
+
+
+### Select by canonical reference
+
+Select words for a passage identified by the OSH name and passage conventions:
+
 ```{julia}
 versewords = oshverse("Gen", "1.1", words)
 ```
 
-pull out the form and the morphology
+
+### Apply regular Julia mapping to a selection
+
+Extract the token and the morphological analysis from the tuple:
 
 
 ```{julia}
@@ -41,7 +73,7 @@ end
 
 ## More information
 
-- See some [btutorials](./tutorials/) to get started
+- See some [tutorials](./tutorials/) to get started
 - See [reference documentation](./reference/) (APIs, data sources)
 
 
