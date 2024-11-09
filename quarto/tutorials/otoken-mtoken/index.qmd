@@ -1,0 +1,15 @@
+---
+engine: julia
+title: Orthographic tokens and morphological tokens
+---
+
+
+
+:::{.callout-caution title="TBA"}
+Tutorial TBA
+:::
+
+Key ideas:
+
+- orthographic tokens: defined solely by orthographic practice
+- morphological tokens: parseable units

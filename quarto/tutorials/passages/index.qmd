@@ -24,8 +24,12 @@ From a list of OSHB word annotations, you can select the words for a single vers
 versewords = oshverse("Gen", "1.1", words)
 ```
 
-Notice that all the selected words share the same URN value: `urn:cts:compnov:bible.genesis.osh:1.1`.
+Notice that while all the selected words share the same URN value (`urn:cts:compnov:bible.genesis.osh:1.1`), they occur in document order.  This is easily seen if we look at the string values of each analyzed token.
 
+```{julia}
+tokens = map(w -> w.mtoken, versewords)
+join(tokens," ")
+```
 
 :::{.callout-tip title="Full list of OSH abbreviations"}
 

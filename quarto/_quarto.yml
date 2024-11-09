@@ -46,6 +46,8 @@ website:
         - tutorials/passages/index.qmd
         - tutorials/morphforms/index.qmd
         - tutorials/bdb/index.qmd
+        - text: "---"
+        - tutorials/otoken-mtoken/index.qmd
 
     - title: "Reference"
       contents: 
