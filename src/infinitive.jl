@@ -49,3 +49,7 @@ $(SIGNATURES)
 function conjugation(inf::OSHInfinitive)
     inf.conjugation
 end
+
+function speechpart(inf::OSHInfinitive)
+    PoSInfinitive()
+end

@@ -60,16 +60,19 @@ export OSHPronoun, pronoun
 export OSHConjunction, conjunction
 export OSHSuffix, suffix
 
+export OSHConjunction, OSHPreposition, OSHAdverb, OSHParticle
+
 export resolvebdb
 
-include("bookids.jl")
 
+export ishebrew
+
+include("bookids.jl")
 
 include("abstracttypes.jl")
 include("type_enumerations.jl")
 
 include("lang_pos.jl")
-
 
 include("finiteverb.jl")
 include("infinitive.jl")
@@ -84,6 +87,8 @@ include("morphcodes.jl")
 
 include("bdb.jl")
 include("xmlparsing.jl")
+
+include("conveniences.jl")
 
 
 

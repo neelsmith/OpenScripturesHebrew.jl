@@ -78,3 +78,7 @@ $(SIGNATURES)
 function substantive_state(p::OSHParticiple)
     p.state
 end
+
+function speechpart(p::OSHParticiple)
+    PoSParticiple()
+end

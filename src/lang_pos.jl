@@ -80,3 +80,14 @@ function isverb(codestring::AbstractString)::Bool
     speechpart(codestring) isa PoSInfinitive  ||
     speechpart(codestring) isa PoSParticiple 
 end
+
+
+"""True if a tuple represents a verbal form
+(finite, infinitive or participle).
+$(SIGNATURES)
+"""
+function isverb(tpl::NamedTuple)::Bool
+    speechpart(tpl.code) isa PoSFiniteVerb ||
+    speechpart(tpl.code) isa PoSInfinitive  ||
+    speechpart(tpl.code) isa PoSParticiple 
+end

@@ -2,8 +2,11 @@ struct OSHConjunction <: OSHMorphologicalForm end
 function conjunction(code::AbstractString)
     OSHConjunction( )
 end
-function show(io::IO, pron::OSHConjunction)
+function show(io::IO, c::OSHConjunction)
     print(io, "conjunction")
+end
+function speechpart(c::OSHConjunction)
+    PoSConjunction()
 end
 
 struct OSHPreposition <: OSHMorphologicalForm end
@@ -13,7 +16,9 @@ end
 function show(io::IO, pron::OSHPreposition)
     print(io, "preposition")
 end
-
+function speechpart(c::OSHPreposition)
+    PoSPreposition()
+end
 
 struct OSHAdverb <: OSHMorphologicalForm end
 function adverb(code::AbstractString)
@@ -21,6 +26,9 @@ function adverb(code::AbstractString)
 end
 function show(io::IO, pron::OSHAdverb)
     print(io, "adverb")
+end
+function speechpart(c::OSHAdverb)
+    PoSAdverb()
 end
 
 
@@ -30,4 +38,7 @@ function particle(code::AbstractString)
 end
 function show(io::IO, pron::OSHParticle)
     print(io, "particle")
+end
+function speechpart(c::OSHParticle)
+    PoSParticle()
 end

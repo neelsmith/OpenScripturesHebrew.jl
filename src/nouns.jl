@@ -69,3 +69,8 @@ $(SIGNATURES)
 function nountype(n::OSHNoun)
     n.type
 end
+
+
+function speechpart(n::OSHNoun)
+    PoSNoun()
+end

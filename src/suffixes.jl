@@ -19,3 +19,7 @@ function suffix(code::AbstractString)
         )
     end
 end
+
+function speechpart(sfx::OSHSuffix)
+    PoSSuffix()
+end

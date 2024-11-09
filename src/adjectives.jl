@@ -65,3 +65,8 @@ $(SIGNATURES)
 function adjectivetype(a::OSHAdjective)
     a.type
 end
+
+
+function speechpart(a::OSHAdjective)
+    PoSAdjective()
+end

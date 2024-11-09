@@ -104,3 +104,7 @@ $(SIGNATURES)
 function gender(v::OSHFiniteVerb)
     v.gender
 end
+
+function speechpart(v::OSHFiniteVerb)
+    PoSFiniteVerb()
+end

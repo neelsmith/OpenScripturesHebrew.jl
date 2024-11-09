@@ -61,3 +61,7 @@ $(SIGNATURES)
 function pronountype(p::OSHPronoun)
     p.type
 end
+
+function speechpart(p::OSHPronoun)
+    PoSPronoun()
+end
