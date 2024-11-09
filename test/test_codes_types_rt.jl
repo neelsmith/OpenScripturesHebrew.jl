@@ -1,6 +1,6 @@
 @testset "Test parsing language and part of speech"  begin
     f = joinpath(pwd(), "xmldata", "Gen.xml")
-    wordlist = compilewords(f)
+    wordlist = compilebook(f)
     typelist = [
         OSHFiniteVerb,
         OSHInfinitive, 

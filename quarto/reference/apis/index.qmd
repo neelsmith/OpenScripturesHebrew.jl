@@ -53,24 +53,24 @@ using OpenScripturesHebrew
 :::
 
 
-`compilewords_remote`
+`compilebook_remote`
 
 :::{.callout-note appearance="minimal"}
 ```{julia}
 #| echo: false
 #| warning: false
-@doc compilewords_remote
+@doc compilebook_remote
 ```
 :::
 
 
-`compilewords_remote`
+`compilebook_remote`
 
 :::{.callout-note appearance="minimal"}
 ```{julia}
 #| echo: false
 #| warning: false
-@doc compilewords
+@doc compilebook
 ```
 :::
 

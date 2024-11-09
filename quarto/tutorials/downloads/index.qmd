@@ -4,6 +4,7 @@ engine: julia
 ---
 
 
+Download OSHB annotations for the entire Hebrew Bible:
 ```{julia}
 #| warning: false
 #| output: false
@@ -15,7 +16,8 @@ words = tanakh()
 length(words)
 ```
 
-Alternatively, download a named section of the Bible (torah, writings, prophets), or a single book.
+Alternatively, download a named section of the Bible using one of the functions `torah`, `writings`, or `prophets`.
+
 
 
 ```{julia}
@@ -28,36 +30,26 @@ torahwords = torah()
 length(torahwords)
 ```
 
+You can also download a single book of the Bible.
 ```{julia}
 #| warning: false
 #| output: false
-genesiswords = compilewords_remote("Gen")
+genesiswords = compilebook_remote("Gen")
 ```
 
 ```{julia}
 length(genesiswords)
 ```
-
-
-## Find words by reference
-
-Each tuple includes a `urn` property with the full string value of a CTS URN that looks like this `urn:cts:compnov:bible.genesis.osh:1.1` for *Genesis* 1.1. Use normal Julia filtering to find all words in *Genesis* 1.1:
-
 ```{julia}
-filter(wd -> wd.urn == "urn:cts:compnov:bible.genesis.osh:1.1", genesiswords)
+using Markdown
+abbrlist = keys(OpenScripturesHebrew.bookids) |> collect |> sort
+items = map(abbrlist) do a
+    raw = OpenScripturesHebrew.bookids[a]
+    cooked = replace(raw, r"^([0-5])" => s"\1 ") |> titlecase
+    string("- ", cooked, ": ", a)
+end
+join(items, "\n") |> Markdown.parse
 ```
 
+Books
 
-Or use substring matching to find words by passage reference:
-
-
-```{julia}
-filter(wd -> endswith(wd.urn,":1.1"), genesiswords)
-```
-
-(Note that this could be messy if you have multiple books!)
-
-
-```{julia}
-filter(wd -> endswith(wd.urn,":1.1"), torahwords)
-```

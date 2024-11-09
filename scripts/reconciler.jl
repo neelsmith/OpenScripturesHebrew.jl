@@ -15,7 +15,7 @@ function sefariadata(bk = book)
     end
 end
 
-oshwords = compilewords_remote("Gen")
+oshwords = compilebook_remote("Gen")
 sefariatuples = sefariadata()
 
 

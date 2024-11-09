@@ -12,7 +12,7 @@ using BrownDriverBriggs
 using Documenter, DocStringExtensions
 
 export attributevalue
-export compilewords, compilewords_remote
+export compilebook, compilebook_remote
 export torah, prophets, writings, tanakh
 
 export language, HebrewLanguage, AramaicLanguage

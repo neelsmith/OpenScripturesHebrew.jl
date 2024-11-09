@@ -5,12 +5,12 @@ corpus = fromcex(compnovurl, CitableTextCorpus, UrlReader)
 vulgate = filter(psg -> versionid(psg.urn) == "vulgate", corpus.passages)
 booklist = map(psg -> workid(psg.urn), vulgate) |> unique
 
-@time words = compilewords_remote("Dan")
+@time words = compilebook_remote("Dan")
 
 bookwords = []
 @time for bk in keys(OpenScripturesHebrew.bookids)
     @info("$(bk) / $(OpenScripturesHebrew.bookids[bk]) ...")
-    push!(bookwords, compilewords_remote(bk))
+    push!(bookwords, compilebook_remote(bk))
     # Verify that corresponding ID is in compnov corpus
     #if ! (OpenScripturesHebrew.bookids[bk] in booklist)
     #    @error("Bad book name: $(OpenScripturesHebrew.bookids[bk])")

@@ -32,7 +32,7 @@ end
 """Download book from OSH github repository and compile word list.
 $(SIGNATURES)
 """
-function compilewords_remote(bookname::AbstractString)
+function compilebook_remote(bookname::AbstractString)
     if ! (bookname in collect(keys(bookids)))
         @warn("Book name $(bookname) not recognized.")
     else
@@ -40,7 +40,7 @@ function compilewords_remote(bookname::AbstractString)
         @info("Downloading $(url)...")
         f = Downloads.download(url)
         @info("Done.")
-        words = compilewords(f)
+        words = compilebook(f)
         rm(f)
         words
     end
@@ -51,7 +51,7 @@ $(SIGNATURES)
 """
 function torah()
     books = ["Gen", "Exod", "Lev", "Num", "Deut"]
-    map(book -> compilewords_remote(book), books) |> Iterators.flatten |> collect
+    map(book -> compilebook_remote(book), books) |> Iterators.flatten |> collect
 end
 
 
@@ -63,7 +63,7 @@ function prophets()
         "Isa", "Jer", "Ezek", 
         "Hos", "Joel", "Amos", "Obad", "Jonah", "Mic", "Nah", "Hab", "Zeph", "Hag", "Zech", "Mal"
     ]
-    map(book -> compilewords_remote(book), books) |> Iterators.flatten |> collect
+    map(book -> compilebook_remote(book), books) |> Iterators.flatten |> collect
 end
 
 
@@ -72,7 +72,7 @@ $(SIGNATURES)
 """
 function writings()
     books = ["Ps", "Prov", "Job", "Song","Ruth","Lam","Eccl", "Esth","Dan","Ezra", "Neh", "2Chr"]
-    map(book -> compilewords_remote(book), books) |> Iterators.flatten |> collect
+    map(book -> compilebook_remote(book), books) |> Iterators.flatten |> collect
 end
 
 
@@ -90,7 +90,7 @@ end
 """Parse file and compile a list of `w` elements keyed by URN.
 $(SIGNATURES)
 """
-function compilewords(f)
+function compilebook(f)
     wordlist = []
     parsed = readxml(f)
     book = findfirst("//osis:div", parsed.root, [ "osis" => OSIS])
