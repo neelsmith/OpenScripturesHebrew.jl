@@ -8,6 +8,23 @@ struct OSHFiniteVerb <: OSHMorphologicalForm
 end
 
 
+function show(io::IO, v::OSHFiniteVerb)
+    print(io, label(v))
+end
+
+function label(v::OSHFiniteVerb)
+    join(["finite verb:", label(v.conjugation), label(v.verbtype), label(v.person), label(v.number), label(v.gender)], " ")
+end
+#=
+function ==(adj1::GMFAdjective, adj2::GMFAdjective)
+    adj1.adjgender == adj2.adjgender && 
+    adj1.adjcase == adj2.adjcase && 
+    adj1.adjnumber  == adj2.adjnumber &&
+    adj1.adjdegree == adj2.adjdegree
+end
+=#
+
+
 """Construct a finite verb form from a morphological code.
 $(SIGNATURES)
 """

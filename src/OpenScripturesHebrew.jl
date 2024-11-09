@@ -1,6 +1,5 @@
 module OpenScripturesHebrew
 
-
 import Base: show
 import Base: ==
 
