@@ -8,7 +8,6 @@ engine: julia
 
 ## Downloading data
 
-
 `tanakh`
 
 :::{.callout-note appearance="minimal"}
@@ -75,3 +74,49 @@ using OpenScripturesHebrew
 :::
 
 ## Morphological codes
+
+`parseword`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+@doc parseword
+```
+:::
+
+
+
+`parsecode`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+@doc parsecode
+```
+:::
+
+
+## Selecting and filtering tuples
+
+
+`ishebrew`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+@doc ishebrew
+```
+:::
+
+`oshverse`
+
+:::{.callout-note appearance="minimal"}
+```{julia}
+#| echo: false
+#| warning: false
+@doc oshverse
+```
+:::

@@ -1,32 +1,33 @@
 ---
-title: Using passage references
+title: Find words by canonical reference
 engine: julia
 ---
 
-All citation is by CTS URN.
+OSHB's annotated words are ordered in the sequence in which they occur in the Hebrew Bible, and include a reference to a specific verse represented with a CTS URN. Here is the URN for the first word (in the first verse) in the Hebrew Bible.
 
-## Find words by reference
-
-Each tuple includes a `urn` property with the full string value of a CTS URN that looks like this `urn:cts:compnov:bible.genesis.osh:1.1` for *Genesis* 1.1. Use normal Julia filtering to find all words in *Genesis* 1.1:
 
 ```{julia}
+#| warning: false
+#| output: false
 using OpenScripturesHebrew
-genesiswords = singlebook("Gen")
-filter(wd -> wd.urn == "urn:cts:compnov:bible.genesis.osh:1.1", genesiswords)
+words = tanakh()
 ```
 
+```{julia}
+words[1].urn
+```
 
-Or use substring matching to find words by passage reference:
+From a list of OSHB word annotations, you can select the words for a single verse using the OSHB abbreviation for a book and the canonical `chapter.verse` reference (separated by a period).
 
 
 ```{julia}
-filter(wd -> endswith(wd.urn,":1.1"), genesiswords)
+versewords = oshverse("Gen", "1.1", words)
 ```
 
-(Note that this could be messy if you have multiple books!)
+Notice that all the selected words share the same URN value: `urn:cts:compnov:bible.genesis.osh:1.1`.
 
 
-```{julia}
-torahwords = torah()
-filter(wd -> endswith(wd.urn,":1.1"), torahwords)
-```
+:::{.callout-tip title="Full list of OSH abbreviations"}
+
+See [this page](../../reference/bookabbrs/) for a complete list of OSH abbreviations for books of the Hebrew Bible.
+:::
