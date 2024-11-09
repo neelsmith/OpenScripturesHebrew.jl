@@ -3,4 +3,6 @@ title: Using lemmatization and Brown-Driver Briggs
 engine: julia
 ---
 
-Hey, I did a BDB package, too!
+::: {.callout-warning title="TBA"}
+Check back for a tutorial on connecting morphological data from OSHB with articles from Brown-Driver-Briggs Hebrew lexicon.
+:::

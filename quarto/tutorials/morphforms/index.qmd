@@ -3,22 +3,29 @@ title: Morphological data
 engine: julia
 ---
 
-Quick intro!
-
-Words are identified by language
+The `OpenScripturesHebrew.jl` package includes a rich model for the morphological data encoded in the OSHB data as string codes.  The morphological code is included as the `code` property in the named tuple that `OpenScripturesHebrew.jl`'s functions create when reading OSHB data.
 
 ```{julia}
 #| warning: false
 #| output: false
 using OpenScripturesHebrew
 words = tanakh()
-length(words)
+words[1].code
 ```
 
+You can convert the tuple's code value to a Julia object with the `parseword` function.
 
 ```{julia}
-#| warning: false
-#| output: false
-hwords = filter(w -> ishebrew(w), words)
-length(hwords)
+morph1 = parseword(words[1])
 ```
+
+These Julia objects are subtypes of the abstract `OSHMorphologicalForm`.
+
+```{julia}
+morph1 |> typeof 
+```
+
+```{julia}
+morph1 |> typeof  |> supertype
+```
+

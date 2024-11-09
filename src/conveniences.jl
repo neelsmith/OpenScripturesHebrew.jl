@@ -13,6 +13,9 @@ function ishebrew(code::AbstractString)::Bool
 end
 
 
+"""Select from a given list of OSHB annotations an ordered list of word annotations for a given book and passage reference.
+$(SIGNATURES)
+"""
 function oshverse(book::AbstractString, ref::AbstractString, words::Vector)
     urn = "urn:cts:compnov:bible.$(bookids[book]).osh:$(ref)"
     filter(w -> w.urn == urn, words)
