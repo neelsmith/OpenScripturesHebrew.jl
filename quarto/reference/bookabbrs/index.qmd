@@ -1,0 +1,23 @@
+---
+title: OSH abbreviations for books of the Bible
+engine: julia
+---
+
+
+
+OSHB uses the following abbreviations for books of the Hebrew Bible:
+
+```{julia}
+#| echo: false
+using OpenScripturesHebrew
+using Markdown
+abbrlist = keys(OpenScripturesHebrew.bookids) |> collect |> sort
+items = map(abbrlist) do a
+    raw = OpenScripturesHebrew.bookids[a]
+    cooked = replace(raw, r"^([0-5])" => s"\1 ") |> titlecase
+    string("- ", cooked, ": `", a, "`")
+end
+join(items, "\n") |> Markdown.parse
+```
+
+

@@ -6,16 +6,7 @@ engine: julia
 
 - options for [downloading data](./downloads/)
 - using [passage references](./passages/)
-- using morphological data
-- using lemmatization
+- using [morphological data](./morphforms/)
+- using [lemmatization and BDB](./bdb/)
 
-> ## MOVE INTO TUTORIAL
-Select only words identified as Hebrew (i.e., not Aramaic):
-
-
-```{julia}
-#| warning: false
-#| output: false
-# hwords = filter(w -> ishebrew(w), words)
-```
 

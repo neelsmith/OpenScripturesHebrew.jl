@@ -44,10 +44,13 @@ website:
         - tutorials/index.qmd
         - tutorials/downloads/index.qmd
         - tutorials/passages/index.qmd
+        - tutorials/morphforms/index.qmd
+        - tutorials/bdb/index.qmd
 
     - title: "Reference"
       contents: 
         - reference/index.qmd
+        - reference/bookabbrs/index.qmd
         - reference/apis/index.qmd
         - reference/sources/index.qmd                
         

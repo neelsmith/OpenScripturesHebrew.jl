@@ -1,0 +1,24 @@
+---
+title: Morphological data
+engine: julia
+---
+
+Quick intro!
+
+Words are identified by language
+
+```{julia}
+#| warning: false
+#| output: false
+using OpenScripturesHebrew
+words = tanakh()
+length(words)
+```
+
+
+```{julia}
+#| warning: false
+#| output: false
+hwords = filter(w -> ishebrew(w), words)
+length(hwords)
+```

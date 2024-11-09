@@ -4,6 +4,7 @@ engine: julia
 ---
 
 
+- OSH [abbreviations for books of the Hebrew Bible](./bookabbrs/)
 - [API documentation](./apis/)
 - [The data sources](./sources/)
 

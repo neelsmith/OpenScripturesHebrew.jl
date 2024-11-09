@@ -32,7 +32,7 @@ end
 """Download book from OSH github repository and compile word list.
 $(SIGNATURES)
 """
-function compilebook_remote(bookname::AbstractString)
+function singlebook(bookname::AbstractString)
     if ! (bookname in collect(keys(bookids)))
         @warn("Book name $(bookname) not recognized.")
     else
@@ -51,7 +51,7 @@ $(SIGNATURES)
 """
 function torah()
     books = ["Gen", "Exod", "Lev", "Num", "Deut"]
-    map(book -> compilebook_remote(book), books) |> Iterators.flatten |> collect
+    map(book -> singlebook(book), books) |> Iterators.flatten |> collect
 end
 
 
@@ -63,7 +63,7 @@ function prophets()
         "Isa", "Jer", "Ezek", 
         "Hos", "Joel", "Amos", "Obad", "Jonah", "Mic", "Nah", "Hab", "Zeph", "Hag", "Zech", "Mal"
     ]
-    map(book -> compilebook_remote(book), books) |> Iterators.flatten |> collect
+    map(book -> singlebook(book), books) |> Iterators.flatten |> collect
 end
 
 
@@ -72,7 +72,7 @@ $(SIGNATURES)
 """
 function writings()
     books = ["Ps", "Prov", "Job", "Song","Ruth","Lam","Eccl", "Esth","Dan","Ezra", "Neh", "2Chr"]
-    map(book -> compilebook_remote(book), books) |> Iterators.flatten |> collect
+    map(book -> singlebook(book), books) |> Iterators.flatten |> collect
 end
 
 

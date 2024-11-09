@@ -53,18 +53,18 @@ using OpenScripturesHebrew
 :::
 
 
-`compilebook_remote`
+`singlebook`
 
 :::{.callout-note appearance="minimal"}
 ```{julia}
 #| echo: false
 #| warning: false
-@doc compilebook_remote
+@doc singlebook
 ```
 :::
 
 
-`compilebook_remote`
+`singlebook`
 
 :::{.callout-note appearance="minimal"}
 ```{julia}

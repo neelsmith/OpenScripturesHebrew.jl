@@ -11,7 +11,7 @@ Each tuple includes a `urn` property with the full string value of a CTS URN tha
 
 ```{julia}
 using OpenScripturesHebrew
-genesiswords = compilebook_remote("Gen")
+genesiswords = singlebook("Gen")
 filter(wd -> wd.urn == "urn:cts:compnov:bible.genesis.osh:1.1", genesiswords)
 ```
 

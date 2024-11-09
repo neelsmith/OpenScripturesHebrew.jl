@@ -30,26 +30,19 @@ torahwords = torah()
 length(torahwords)
 ```
 
-You can also download a single book of the Bible.
+You can download annotations for a single book of the Bible using the OSHB's abbreviation for a book.
 ```{julia}
-#| warning: false
 #| output: false
-genesiswords = compilebook_remote("Gen")
+genesiswords = singlebook("Gen")
 ```
 
 ```{julia}
 length(genesiswords)
 ```
-```{julia}
-using Markdown
-abbrlist = keys(OpenScripturesHebrew.bookids) |> collect |> sort
-items = map(abbrlist) do a
-    raw = OpenScripturesHebrew.bookids[a]
-    cooked = replace(raw, r"^([0-5])" => s"\1 ") |> titlecase
-    string("- ", cooked, ": ", a)
-end
-join(items, "\n") |> Markdown.parse
-```
 
-Books
 
+
+:::{.callout-tip title="Full list of OSH abbreviations"}
+
+See [this page](../../reference/bookabbrs/) for a complete list of OSH abbreviations for books of the Hebrew Bible.
+:::
