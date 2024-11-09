@@ -1,8 +1,8 @@
-"""The OSH model a noun form has gender, number, substantive state and a noun type."""
+"""The OSH model of a pronoun form has gender, number, substantive state and a noun type."""
 struct OSHPronoun <: OSHMorphologicalForm
     person::Union{OSHPerson, Nothing}
-    gender::OSHGender
-    number::OSHNumber
+    gender::Union{OSHGender, Nothing}
+    number::Union{OSHNumber, Nothing}
     type::OSHPronounType
 end
 
@@ -11,10 +11,10 @@ end
 $(SIGNATURES)
 """
 function pronoun(code::AbstractString)
-    #if length(code) == 3 && nountype(code[3]) isa OSHProperName
-    #    OSHNoun(nothing, nothing, nothing, OSHProperName())
+    if length(code) == 3 
+       OSHPronoun(nothing, nothing, nothing, pronountype(code[3]))
         
-    if length(code) < 6
+    elseif length(code) < 6
         @error("Invalid code for pronoun $(code)")
 
     else

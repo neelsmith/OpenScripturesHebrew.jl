@@ -9,3 +9,34 @@ OSHB publishes word-level morphological annotations of the entire Hebrew Bible i
 
 - the annotations are formatted in XML validating against the [OSIS schema](http://crosswire.org/osis/)
 - the values for OSHB's morphological codes are documented on [this web page](https://hb.openscriptures.org/parsing/HebrewMorphologyCodes.html)
+
+
+## Hebrew morphological values not parsed by `parsecode`
+
+
+The OSH XML files annotate 427479 morphological tokens as Hebrew and 4828 as Aramaic (a total of 432307 morphological tokens). In the current version of `OpenScripturesHebrew.jl`, the `parsecode` function is implemented for the Hebrew forms. `parsecode`'s analysis fails on eighteen tokens in the books of *Daniel* and *Ezra*. These tokens have morphological codes that conflict with the  [documentation of OSH morphology codes](https://hb.openscriptures.org/parsing/HebrewMorphologyCodes.html).
+
+
+One is a noun form with no value for noun type, gender or number:
+
+- Code `HNxxxa` for פַרְסִֽין (in וּ/פַרְסִֽין) at *Daniel* 5.25.
+
+The others are verb forms (finite verbs, infinitives and participles) that are marked as Hebrew language forms, but encode the verb's morphology using codes for the stem type that are allowed for Aramaic forms, but not Hebrew:
+
+1. Code `HVec` for שֵׁיזָבוּתַ֑ (in לְ/שֵׁיזָבוּתַ֑/נָא) at *Daniel* 3.17. *Invalid value for stem type `e`.*
+1. Code `HVep3ms` for שֵׁיזִ֣ב (in וְ/שֵׁיזִ֣ב) at *Daniel* 3.28. *Invalid value for stem type `e`.*
+1. Code `HVarmsa` for מוֹדֵא֙ (in וּ/מוֹדֵא֙) at *Daniel* 6.11. *Invalid value for stem type `a`.*
+1. Code `HVec` for שֵׁיזָבוּתֵ֑ (in לְ/שֵׁיזָבוּתֵ֑/הּ) at *Daniel* 6.15. *Invalid value for stem type `e`.*
+1. Code `HVec` for שֵׁיזָבוּתָ֖ (in לְ/שֵׁיזָבוּתָ֖/ךְ) at *Daniel* 6.21. *Invalid value for stem type `e`.*
+1. Code `HVarmsa` for מַצִּ֗ל (in וּ/מַצִּ֗ל) at *Daniel* 6.28. *Invalid value for stem type `a`.*
+1. Code `HVarfsa` for מַדֱּקָ֔ה (in וּ/מַדֱּקָ֔ה) at *Daniel* 7.7. *Invalid value for stem type `a`.*
+1. Code `HVai3mp` for יַחְסְנ֤וּן (in וְ/יַחְסְנ֤וּן) at *Daniel* 7.18. *Invalid value for stem type `a`.*
+1. Code `HVai3fs` for תַדְּקִנַּֽ (in וְ/תַדְּקִנַּֽ/הּ) at *Daniel* 7.23. *Invalid value for stem type `a`.*
+1. Code `HVec` for שַׁכְלָלָֽה (in לְ/שַׁכְלָלָֽה) at *Ezra* 5.3.  *Invalid value for stem type `e`.*
+1. Code `HVarmsa` for מַצְלַ֥ח (in וּ/מַצְלַ֥ח) at *Ezra* 5.8. *Invalid value for stem type `a`.*
+1. Code `HVec` for שַׁכְלָלָֽה (in לְ/שַׁכְלָלָֽה) at *Ezra* 5.9.  *Invalid value for stem type `e`.*
+1. Code `HVep3ms` for שַׁכְלְלֵֽ (in וְ/שַׁכְלְלֵֽ/הּ) at *Ezra* 5.11.  *Invalid value for stem type `e`.*
+1. Code `HVai2ms` for תַחֵ֖ת (in וְ/תַחֵ֖ת) at *Ezra* 6.5. *Invalid value for stem type `a`.*
+1. Code `HVarmpa` for מַצְלְחִ֔ין (in וּ/מַצְלְחִ֔ין) at *Ezra* 6.14. *Invalid value for stem type `a`.*
+1. Code `HVep3mp` for שַׁכְלִ֗לוּ (in וְ/שַׁכְלִ֗לוּ) at *Ezra* 6.14.  *Invalid value for stem type `e`.*
+1. Code `HVep3ms` for שֵׁיצִיא֙ (in וְ/שֵׁיצִיא֙) at *Ezra* 6.15.  *Invalid value for stem type `e`.*

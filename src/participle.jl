@@ -19,6 +19,8 @@ function participle(code)
         thestate = OSHAbsolute()
     elseif code[7]  == 'c'
         thestate = OSHConstruct()
+    elseif code[7] == 'd'
+        thestate = OSHDetermined()
     end
     if isnothing(thestate)
         @error("Invalid code for substantive state of participle: $(code)")
