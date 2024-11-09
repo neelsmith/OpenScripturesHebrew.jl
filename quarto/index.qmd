@@ -60,7 +60,7 @@ versewords = oshverse("Gen", "1.1", words)
 ```
 
 
-### Apply regular Julia mapping to a selection
+### Apply regular Julia mapping to a selection of words
 
 Extract the token and the morphological analysis from the tuple:
 
