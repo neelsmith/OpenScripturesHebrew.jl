@@ -4,6 +4,11 @@ struct OSHInfinitive <: OSHMorphologicalForm
     conjugation::OSHConjugation
 end
 
+## ADD SHOW
+function show(io::IO, inf::OSHInfinitive)
+    print(io, join(["infinitive:", inf.conjugation, inf.state, "state"], " "))
+end
+
 """Instantiate an infinitive from a morphological code string.
 $(SIGNATURES)
 """

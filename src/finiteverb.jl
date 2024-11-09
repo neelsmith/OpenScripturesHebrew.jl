@@ -13,7 +13,7 @@ function show(io::IO, v::OSHFiniteVerb)
 end
 
 function label(v::OSHFiniteVerb)
-    join(["finite verb:", label(v.conjugation), label(v.verbtype), label(v.person), label(v.number), label(v.gender)], " ")
+    join(["finite verb:", v.conjugation, v.verbtype, v.person, v.number, v.gender], " ")
 end
 #=
 function ==(adj1::GMFAdjective, adj2::GMFAdjective)

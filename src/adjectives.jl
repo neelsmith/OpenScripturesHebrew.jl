@@ -6,6 +6,9 @@ struct OSHAdjective <: OSHMorphologicalForm
     type::OSHAdjectiveType
 end
 
+function show(io::IO, a::OSHAdjective)
+    print(io, join(["adjective ($(a.type )):", a.gender, a.number, a.state], " "))
+end
 
 """Construct an adjective from morphological code.
 $(SIGNATURES)

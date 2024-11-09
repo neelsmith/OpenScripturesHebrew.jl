@@ -22,10 +22,7 @@ export PoSParticiple,PoSInfinitive, PoSFiniteVerb
 
 export parsecode, parsetuple
 
-export OSHInfinitive, infinitive
-export OSHFiniteVerb, finiteverb
-export OSHParticiple, participle
-export OSHNoun, noun
+
 
 export conjugation
 export OSHQal, OSHHiphil, OSHPiel, OSHNiphal, OSHPual, OSHHophal, OSHQalPassive
@@ -52,6 +49,17 @@ export voice
 export OSHActive, OSHPassive
 
 export OSHMorphologicalForm
+
+export OSHInfinitive, infinitive
+export OSHFiniteVerb, finiteverb
+export OSHParticiple, participle
+
+export OSHNoun, noun
+export OSHAdjective, adjective
+export OSHPronoun, pronoun
+export OSHConjunction, conjunction
+export OSHSuffix, suffix
+
 export resolvebdb
 
 include("bookids.jl")

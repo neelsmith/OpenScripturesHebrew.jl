@@ -6,6 +6,10 @@ struct OSHNoun <: OSHMorphologicalForm
     type::OSHNounType
 end
 
+function show(io::IO, n::OSHNoun)
+    print(io, join(["noun ($(n.type)):", n.gender, n.number, n.state, "state"], " "))
+end
+
 
 """Construct a noun from morphological code.
 $(SIGNATURES)

@@ -1,216 +1,304 @@
 # Enumeration of languages:
 struct HebrewLanguage <: OSHLanguage end
+function show(io::IO, pos::HebrewLanguage)
+    print(io, "Hebrew")
+end
 struct AramaicLanguage <: OSHLanguage end
+function show(io::IO, pos::AramaicLanguage)
+    print(io, "Aramaic")
+end
 
 # Enumeration of parts of speech:
 struct PoSAdjective <: OSHPartOfSpeech end
+function show(io::IO, pos::PoSAdjective)
+    print(io, "adjective")
+end
 struct PoSConjunction <: OSHPartOfSpeech end
+function show(io::IO, pos::PoSConjunction)
+    print(io, "conjunction")
+end
 struct PoSAdverb <: OSHPartOfSpeech end
+function show(io::IO, pos::PoSAdverb)
+    print(io, "adverb")
+end
 struct PoSNoun <: OSHPartOfSpeech end
+function show(io::IO, pos::PoSNoun)
+    print(io, "noun")
+end
 struct PoSPronoun <: OSHPartOfSpeech end
+function show(io::IO, pos::PoSPronoun)
+    print(io, "pronoun")
+end
 struct PoSParticle <: OSHPartOfSpeech end
+function show(io::IO, pos::PoSParticle)
+    print(io, "particle")
+end
 struct PoSPreposition <: OSHPartOfSpeech end
+function show(io::IO, pos::PoSPreposition)
+    print(io, "preposition")
+end
 struct PoSSuffix <: OSHPartOfSpeech end
-
+function show(io::IO, pos::PoSSuffix)
+    print(io, "suffix")
+end
 struct PoSParticiple <: OSHPartOfSpeech end
+function show(io::IO, pos::PoSParticiple)
+    print(io, "participle")
+end
 struct PoSInfinitive <: OSHPartOfSpeech end
+function show(io::IO, pos::PoSInfinitive)
+    print(io, "infinitive")
+end
 struct PoSFiniteVerb <: OSHPartOfSpeech end
-
+function show(io::IO, pos::PoSFiniteVerb)
+    print(io, "finite verb")
+end
 
 # Enumeration of conjugations:
 struct OSHQal <: OSHConjugation end
-function label(c::OSHQal)
-    "qal"
+function show(io::IO, c::OSHQal)
+    print(io, "qal")
 end
 struct OSHHiphil <: OSHConjugation end
-function label(c::OSHHiphil)
-    "hiphil"
+function show(io::IO, c::OSHHiphil)
+    print(io, "hiphil")
 end
 struct OSHPiel <: OSHConjugation end
-function label(c::OSHPiel)
-    "piel"
+function show(io::IO, c::OSHPiel)
+    print(io, "piel")
 end
 struct OSHNiphal <: OSHConjugation end
-function label(c::OSHNiphal)
-    "niphal"
+function show(io::IO, c::OSHNiphal)
+    print(io, "niphal")
 end
 struct OSHPual <: OSHConjugation end
-function label(c::OSHPual)
-    "pual"
+function show(io::IO, c::OSHPual)
+    print(io, "pual")
 end
 struct OSHHophal <: OSHConjugation end
-function label(c::OSHHophal)
-    "hophal"
+function show(io::IO, c::OSHHophal)
+    print(io, "hophal")
 end
 struct OSHTiphil <: OSHConjugation end
-function label(c::OSHTiphil)
-    "tiphil (?)"
+function show(io::IO, c::OSHTiphil)
+    print(io, "tiphil (?)")
 end
 struct OSHQalPassive <: OSHConjugation end
-function label(c::OSHQalPassive)
-    "qal (passive)"
+function show(io::IO, c::OSHQalPassive)
+    print(io, "qal (passive)")
 end
 struct OSHHishtaphel <: OSHConjugation end
-function label(c::OSHHishtaphel)
-    "histhaphel (?)"
+function show(io::IO, c::OSHHishtaphel)
+    print(io, "histaphel (?)")
 end
 struct OSHHithpalpel <: OSHConjugation end
-function label(c::OSHHithpalpel)
-    "hithpalpel (?)"
+function show(io::IO, c::OSHHithpalpel)
+    print(io, "hithpalpel (?)")
 end
 struct OSHPolel <: OSHConjugation end
-function label(c::OSHPolel)
-    "polel (?)"
+function show(io::IO, c::OSHPolel)
+    print(io, "polel (?)")
 end
 struct OSHHithpolel <: OSHConjugation end
-function label(c::OSHHithpolel)
-    "hithpolel (?)"
+function show(io::IO, c::OSHHithpolel)
+    print(io, "hithpolel (?)")
 end
 struct OSHPilpel <: OSHConjugation end
-function label(c::OSHPilpel)
-    "pipel (?)"
+function show(io::IO, c::OSHPilpel)
+    print(io, "pilpel (?)")
 end
 struct OSHPalel <: OSHConjugation end
-function label(c::OSHPalel)
-    "palel (?)"
+function show(io::IO, c::OSHPalel)
+    print(io, "palel (?)")
 end
 struct OSHPoel <: OSHConjugation end
-function label(c::OSHPoel)
-    "poel (?)"
+function show(io::IO, c::OSHPoel)
+    print(io, "poel (?)")
 end
 struct OSHHothpaal <: OSHConjugation end
-function label(c::OSHHothpaal)
-    "hothpaal (?)"
+function show(io::IO, c::OSHHothpaal)
+    print(io, "hothpaal (?)")
 end
 struct OSHNithpael <: OSHConjugation end
-function label(c::OSHNithpael)
-    "nithpael (?)"
+function show(io::IO, c::OSHNithpael)
+    print(io, "nithpael (?)")
 end
 struct OSHPoal <: OSHConjugation end
-function label(c::OSHPoal)
-    "poal (?)"
+function show(io::IO, c::OSHPoal)
+    print(io, "poal (?)")
 end
 struct OSHPolpal <: OSHConjugation end
-function label(c::OSHPolpal)
-    "polpal (?)"
+function show(io::IO, c::OSHPolpal)
+    print(io, "polpal (?)")
 end
 struct OSHPulal <: OSHConjugation end
-function label(c::OSHPulal)
-    "pulal (?)"
+function show(io::IO, c::OSHPulal)
+    print(io, "pulal (?)")
 end
 struct OSHPolal <: OSHConjugation end
-function label(c::OSHPolal)
-    "polal (?)"
+function show(io::IO, c::OSHPolal)
+    print(io, "polal (?)")
 end
 struct OSHHithpoel <: OSHConjugation end
-function label(c::OSHHithpoel)
-    "hithpoel (̣̣̣?)"
+function show(io::IO, c::OSHHithpoel)
+    print(io, "hithpoel (?)")
 end
 struct OSHPealal <: OSHConjugation end
-function label(c::OSHPealal)
-    "pealal (?)"
+function show(io::IO, c::OSHPealal)
+    print(io, "pealal (?)")
 end
 struct OSHPilel <: OSHConjugation end
-function label(c::OSHPilel)
-    "pilel (?)"
+function show(io::IO, c::OSHPilel)
+    print(io, "pilel (?)")
 end
 
 # Enumeration of verbtypes:
 struct OSHPerfect <: OSHVerbType end
-function label(c::OSHPerfect)
-    "perfect"
+function show(io::IO, v::OSHPerfect)
+    print(io, "perfect")
 end
 struct OSHSequentialPerfect <: OSHVerbType end
-function label(c::OSHSequentialPerfect)
-    "sequential perfect"
+function show(io::IO, v::OSHSequentialPerfect)
+    print(io, "sequential perfect")
 end
 struct OSHImperfect <: OSHVerbType end
-function label(c::OSHImperfect)
-    "imperfect"
+function show(io::IO, v::OSHImperfect)
+    print(io, "imperfect")
 end
 struct OSHSequentialImperfect <: OSHVerbType end
-function label(c::OSHSequentialImperfect)
-    "sequential imperfect"
+function show(io::IO, v::OSHSequentialImperfect)
+    print(io, "sequential imperfect")
 end
 struct OSHJussive <: OSHVerbType end
-function label(c::OSHJussive)
-    "jussive"
+function show(io::IO, v::OSHJussive)
+    print(io, "jussive")
 end
 struct OSHImperative <: OSHVerbType end
-function label(c::OSHImperative)
-    "imperative"
+function show(io::IO, v::OSHImperative)
+    print(io, "imperative")
 end
 struct OSHCohortative <: OSHVerbType end
-function label(c::OSHCohortative)
-    "cohortative"
+function show(io::IO, v::OSHCohortative)
+    print(io, "cohortative")
 end
 
 # Enumeration of persons:
 struct OSHFirstPerson <: OSHPerson end
-function label(p::OSHFirstPerson)
-    "first"
+function show(io::IO, p::OSHFirstPerson)
+    print(io, "first")
 end
 struct OSHSecondPerson <: OSHPerson end
-function label(p::OSHSecondPerson)
-    "second"
+function show(io::IO, p::OSHSecondPerson)
+    print(io, "second")
 end
 struct OSHThirdPerson <: OSHPerson end
-function label(p::OSHThirdPerson)
-    "third"
+function show(io::IO, p::OSHThirdPerson)
+    print(io, "third")
 end
 
 
 # Enumeration of number:
 struct OSHSingular <: OSHNumber end
-function label(n::OSHSingular)
-    "singular"
+function show(io::IO, n::OSHSingular)
+    print(io, "singular")
 end
 struct OSHPlural <: OSHNumber end
-function label(n::OSHPlural)
-    "plural"
+function show(io::IO, n::OSHPlural)
+    print(io, "plural")
 end
 struct OSHDual <: OSHNumber end
-function label(n::OSHDual)
-    "dual"
+function show(io::IO, n::OSHDual)
+    print(io, "dual")
 end
 
 # Enumeration of gender:
 struct OSHMasculine <: OSHGender end
-function label(g::OSHMasculine)
-    "masculine"
+function show(io::IO, g::OSHMasculine)
+    print(io, "masculine")
 end
 struct OSHFeminine <: OSHGender end
-function label(g::OSHFeminine)
-    "feminine"
+function show(io::IO, g::OSHFeminine)
+    print(io, "feminine")
 end
 struct OSHCommon <: OSHGender end
-function label(g::OSHCommon)
-    "common gender"
+function show(io::IO, g::OSHCommon)
+    print(io, "common gender")
 end
 
 # Enumeration of values for voice:
 struct OSHActive <: OSHVoice end
+function show(io::IO, v::OSHActive)
+    print(io, "active")
+end
 struct OSHPassive <: OSHVoice end
+function show(io::IO, v::OSHPassive)
+    print(io, "passive")
+end
 
 # Enumeration of noun states:
 struct OSHAbsolute <: OSHSubstantiveState end
+function show(io::IO, st::OSHAbsolute)
+    print(io, "absolute")
+end
 struct OSHConstruct <: OSHSubstantiveState end
+function show(io::IO, st::OSHConstruct)
+    print(io, "construct")
+end
 struct OSHDetermined <: OSHSubstantiveState end
+function show(io::IO, st::OSHDetermined)
+    print(io, "determined")
+end
 
 # Enumeration of noun types:
 struct OSHCommonNoun <: OSHNounType end
+function show(io::IO, nt::OSHCommonNoun)
+    print(io, "common noun")
+end
 struct OSHProperName <: OSHNounType end
+function show(io::IO, nt::OSHProperName)
+    print(io, "proper name")
+end
 struct OSHGentilic <: OSHNounType end
+function show(io::IO, nt::OSHGentilic)
+    print(io, "gentilic")
+end
 
 # Enumeration of adjective types:
 struct OSHSimpleAdjective <: OSHAdjectiveType end
+function show(io::IO, a::OSHSimpleAdjective)
+    print(io, "simple adjective")
+end
 struct OSHCardinalNumber <: OSHAdjectiveType end
+function show(io::IO, a::OSHCardinalNumber)
+    print(io, "cardinal number")
+end
 struct OSHOrdinalNumber <: OSHAdjectiveType end
+function show(io::IO, a::OSHOrdinalNumber)
+    print(io, "ordinal number")
+end
 struct OSHGentilicAdjective <: OSHAdjectiveType end
+function show(io::IO, a::OSHGentilicAdjective)
+    print(io, "gentilic adjective")
+end
 
 # Enumeration of pronoun types:
 struct OSHDemonstrative <: OSHPronounType end
+function show(io::IO, pron::OSHDemonstrative)
+    print(io, "demonstrative")
+end
 struct OSHIndefinite <: OSHPronounType end
+function show(io::IO, pron::OSHIndefinite)
+    print(io, "indefinite")
+end
 struct OSHInterrogative <: OSHPronounType end
+function show(io::IO, pron::OSHInterrogative)
+    print(io, "interrogative")
+end
 struct OSHPersonal <: OSHPronounType end
+function show(io::IO, pron::OSHPersonal)
+    print(io, "personal")
+end
 struct OSHRelative <: OSHPronounType end
+function show(io::IO, pron::OSHRelative)
+    print(io, "relative")
+end

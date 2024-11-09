@@ -6,6 +6,9 @@ struct OSHPronoun <: OSHMorphologicalForm
     type::OSHPronounType
 end
 
+function show(io::IO, pron::OSHPronoun)
+    print(io, join(["pronoun ($(pron.type)):", pron.person, pron.gender, pron.number], " "))
+end
 
 """Construct a pronoun from morphological code.
 $(SIGNATURES)

@@ -4,8 +4,11 @@ struct OSHSuffix <: OSHMorphologicalForm
     gender::Union{OSHGender, Nothing}
 end
 
-function suffix(code::AbstractString)
+function show(io::IO, sfx::OSHSuffix)
+    print(io, join(["suffix:", sfx.person, sfx.number, sfx.gender], " "))
+end
 
+function suffix(code::AbstractString)
     if length(code) == 3
         OSHSuffix(nothing, nothing, nothing)
     else
