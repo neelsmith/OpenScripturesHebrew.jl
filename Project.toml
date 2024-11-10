@@ -1,7 +1,7 @@
 name = "OpenScripturesHebrew"
 uuid = "a2aa3e71-aced-403c-831b-dc7e729b9ba3"
 authors = ["Neel Smith <dnsmith.neel@gmail.com>"]
-version = "0.1.0"
+version = "0.2.0"
 
 [deps]
 BrownDriverBriggs = "ed877a0f-8e86-4599-984a-df81107104eb"
